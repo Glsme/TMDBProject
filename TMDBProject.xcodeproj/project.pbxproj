@@ -28,11 +28,11 @@
 		855987D6289BBB8000A5E724 /* CastTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 855987D4289BBB8000A5E724 /* CastTableViewCell.swift */; };
 		855987D7289BBB8000A5E724 /* CastTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 855987D5289BBB8000A5E724 /* CastTableViewCell.xib */; };
 		855987D9289BE96D00A5E724 /* MovieCastModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 855987D8289BE96D00A5E724 /* MovieCastModel.swift */; };
-		855E10B1289FEA3D00024E42 /* Web.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 855E10B0289FEA3D00024E42 /* Web.storyboard */; };
-		855E10B3289FEB4900024E42 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 855E10B2289FEB4900024E42 /* WebViewController.swift */; };
 		856E5C3E289C037800CA058B /* OverViewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 856E5C3C289C037800CA058B /* OverViewTableViewCell.swift */; };
 		856E5C3F289C037800CA058B /* OverViewTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 856E5C3D289C037800CA058B /* OverViewTableViewCell.xib */; };
 		856E5C42289C0CEB00CA058B /* MoiveCrewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 856E5C41289C0CEA00CA058B /* MoiveCrewModel.swift */; };
+		8571788A2917F862009FE6C6 /* Web.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 857178892917F862009FE6C6 /* Web.storyboard */; };
+		8571788C2917F86A009FE6C6 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8571788B2917F86A009FE6C6 /* WebViewController.swift */; };
 		85777D9E28A230B4001A4BC1 /* Recommand.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 85777D9D28A230B4001A4BC1 /* Recommand.storyboard */; };
 		85777DA028A230D4001A4BC1 /* RecommandViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85777D9F28A230D4001A4BC1 /* RecommandViewController.swift */; };
 		85777DA328A23467001A4BC1 /* RecommandTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85777DA228A23467001A4BC1 /* RecommandTableViewCell.swift */; };
@@ -109,11 +109,11 @@
 		855987D4289BBB8000A5E724 /* CastTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastTableViewCell.swift; sourceTree = "<group>"; };
 		855987D5289BBB8000A5E724 /* CastTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CastTableViewCell.xib; sourceTree = "<group>"; };
 		855987D8289BE96D00A5E724 /* MovieCastModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCastModel.swift; sourceTree = "<group>"; };
-		855E10B0289FEA3D00024E42 /* Web.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Web.storyboard; sourceTree = "<group>"; };
-		855E10B2289FEB4900024E42 /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		856E5C3C289C037800CA058B /* OverViewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverViewTableViewCell.swift; sourceTree = "<group>"; };
 		856E5C3D289C037800CA058B /* OverViewTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OverViewTableViewCell.xib; sourceTree = "<group>"; };
 		856E5C41289C0CEA00CA058B /* MoiveCrewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoiveCrewModel.swift; sourceTree = "<group>"; };
+		857178892917F862009FE6C6 /* Web.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Web.storyboard; sourceTree = "<group>"; };
+		8571788B2917F86A009FE6C6 /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		85777D9D28A230B4001A4BC1 /* Recommand.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Recommand.storyboard; sourceTree = "<group>"; };
 		85777D9F28A230D4001A4BC1 /* RecommandViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommandViewController.swift; sourceTree = "<group>"; };
 		85777DA228A23467001A4BC1 /* RecommandTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommandTableViewCell.swift; sourceTree = "<group>"; };
@@ -239,8 +239,8 @@
 		855E10AF289FEA1F00024E42 /* Web */ = {
 			isa = PBXGroup;
 			children = (
-				855E10B0289FEA3D00024E42 /* Web.storyboard */,
-				855E10B2289FEB4900024E42 /* WebViewController.swift */,
+				857178892917F862009FE6C6 /* Web.storyboard */,
+				8571788B2917F86A009FE6C6 /* WebViewController.swift */,
 			);
 			name = Web;
 			path = ../Web;
@@ -470,7 +470,6 @@
 				855563F228A52A2900C1D4E2 /* Theater.storyboard in Resources */,
 				85906D9C289A6DD2001468AE /* ListCollectionViewCell.xib in Resources */,
 				855987D7289BBB8000A5E724 /* CastTableViewCell.xib in Resources */,
-				855E10B1289FEA3D00024E42 /* Web.storyboard in Resources */,
 				85906D542899F7DB001468AE /* .gitignore in Resources */,
 				85906D4C2899F6D3001468AE /* LaunchScreen.storyboard in Resources */,
 				85777D9E28A230B4001A4BC1 /* Recommand.storyboard in Resources */,
@@ -483,6 +482,7 @@
 				855987CF289BB5C400A5E724 /* Detail.storyboard in Resources */,
 				851AEA7A28A0EC95009E13C6 /* Binggrae-Bold.ttf in Resources */,
 				85906D472899F6D2001468AE /* List.storyboard in Resources */,
+				8571788A2917F862009FE6C6 /* Web.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -494,6 +494,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				856E5C42289C0CEB00CA058B /* MoiveCrewModel.swift in Sources */,
+				8571788C2917F86A009FE6C6 /* WebViewController.swift in Sources */,
 				855563FA28A53F3E00C1D4E2 /* TheaterData.swift in Sources */,
 				855987D1289BB60600A5E724 /* DetailViewController.swift in Sources */,
 				85906D402899F6D2001468AE /* AppDelegate.swift in Sources */,
@@ -512,7 +513,6 @@
 				85906D88289A5835001468AE /* ListViewController.swift in Sources */,
 				8510851128ABD41300502F34 /* MainPageViewController.swift in Sources */,
 				85777DA328A23467001A4BC1 /* RecommandTableViewCell.swift in Sources */,
-				855E10B3289FEB4900024E42 /* WebViewController.swift in Sources */,
 				851AEA7328A0DE83009E13C6 /* TMDBMovieAPIManager.swift in Sources */,
 				8510851928ABDB2300502F34 /* IntroViewController.swift in Sources */,
 				85777DA028A230D4001A4BC1 /* RecommandViewController.swift in Sources */,

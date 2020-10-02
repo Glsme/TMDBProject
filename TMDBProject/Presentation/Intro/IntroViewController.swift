@@ -23,9 +23,9 @@ class IntroViewController: UIViewController {
         
         let sb = UIStoryboard(name: StoryboardName.List.rawValue, bundle: nil)
         guard let vc = sb.instantiateViewController(withIdentifier: ListViewController.reuseIdentifier) as? ListViewController else { return }
-        
-        vc.modalPresentationStyle = .fullScreen
-        present(vc, animated: true)
-//        dismiss(animated: true)
+        let navi = UINavigationController(rootViewController: vc)
+        navi.modalPresentationStyle = .fullScreen
+        dismiss(animated: false)
+        present(navi, animated: false)
     }
 }
