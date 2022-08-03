@@ -50,14 +50,18 @@ class ListViewController: UIViewController {
                     let image = imageURL + item["backdrop_path"].stringValue
                     let title = item["title"].stringValue
                     let release_date = item["release_date"].stringValue
-                    let media_type = item["media_type"].stringValue
+                    let genre_ids = item["genre_ids"].arrayValue
+                    var genreArray: [String] = []
+                    
+                    for target in genre_ids {
+                        genreArray.append(self.genresDictionary[target.intValue] ?? "Etc")
+                    }
+                    
                     let overview = item["overview"].stringValue
-                    let data = TrendListModel(release_date: release_date, media_type: media_type, backdrop_path: image, title: title, overview: overview)
+                    let data = TrendListModel(release_date: release_date, genre_ids: genreArray, backdrop_path: image, title: title, overview: overview)
                     
                     self.searchList.append(data)
                 }
-                
-//                print(self.imageList)
                 
                 self.listCollectionView.reloadData()
                 
@@ -110,7 +114,7 @@ extension ListViewController: UICollectionViewDelegate, UICollectionViewDataSour
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ListCollectionViewCell.resueIdentifier, for: indexPath) as? ListCollectionViewCell else { return UICollectionViewCell() }
         
-        cell.backgroundColor = .orange
+//        cell.backgroundColor = .orange
         cell.listImageView.layer.cornerRadius = 10
         cell.preView.layer.cornerRadius = 10
         cell.configureCell(data: searchList[indexPath.row])

@@ -29,5 +29,7 @@ class ListCollectionViewCell: UICollectionViewCell {
         dateLabel.text = data.release_date
         titleLabel.text = data.title
         overViewLabel.text = data.overview
+        hashTagLabel.text = "#" + data.genre_ids.joined(separator: " #")
+        
     }
 }

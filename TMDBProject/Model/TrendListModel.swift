@@ -7,9 +7,12 @@
 
 import Foundation
 
+import Alamofire
+import SwiftyJSON
+
 struct TrendListModel {
     let release_date: String
-    let media_type: String
+    let genre_ids: [String]
     let backdrop_path: String
     let title: String
     let overview: String

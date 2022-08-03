@@ -80,7 +80,7 @@
                         </constraints>
                     </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="         " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eaN-qH-N47">
-                        <rect key="frame" x="36.5" y="55.5" width="36" height="21"/>
+                        <rect key="frame" x="36.5" y="55.5" width="411" height="21"/>
                         <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -98,6 +98,7 @@
             <constraints>
                 <constraint firstItem="4M5-4U-haU" firstAttribute="leading" secondItem="eaN-qH-N47" secondAttribute="leading" id="68X-Bx-K6X"/>
                 <constraint firstItem="4M5-4U-haU" firstAttribute="top" secondItem="eaN-qH-N47" secondAttribute="bottom" constant="10" id="8pA-ms-5T0"/>
+                <constraint firstItem="4M5-4U-haU" firstAttribute="trailing" secondItem="eaN-qH-N47" secondAttribute="trailing" id="9AA-S9-Xcl"/>
                 <constraint firstItem="4M5-4U-haU" firstAttribute="width" secondItem="gTV-IL-0wX" secondAttribute="width" multiplier="0.85" id="OsP-HL-NCA"/>
                 <constraint firstItem="eaN-qH-N47" firstAttribute="leading" secondItem="Xiv-Sb-kPs" secondAttribute="leading" id="eBC-Es-ylW"/>
                 <constraint firstItem="4M5-4U-haU" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" multiplier="1.1" id="oWo-8H-vHH"/>
