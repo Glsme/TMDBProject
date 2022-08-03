@@ -35,6 +35,7 @@ class ListViewController: UIViewController {
         
     }
     
+    // Movie & TV 적용
     func requestTMDBTrend(media_type: String, time_window: String) {
         let url = "\(EndPoint.TMDBTrendURL)" + "\(media_type)/" + "\(time_window)?" + "api_key=\(APIKey.TMDB)"
         let imageURL = "https://image.tmdb.org/t/p/w500"
@@ -48,8 +49,8 @@ class ListViewController: UIViewController {
                 
                 for item in json["results"].arrayValue {
                     let image = imageURL + item["backdrop_path"].stringValue
-                    let title = item["title"].stringValue
-                    let release_date = item["release_date"].stringValue
+                    let title = item["original_title"].string ?? item["original_name"].stringValue
+                    let release_date = item["release_date"].string ?? item["first_air_date"].stringValue
                     let genre_ids = item["genre_ids"].arrayValue
                     var genreArray: [String] = []
                     
