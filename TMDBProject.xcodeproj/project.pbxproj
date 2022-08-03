@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		85906D402899F6D2001468AE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85906D3F2899F6D2001468AE /* AppDelegate.swift */; };
 		85906D422899F6D2001468AE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85906D412899F6D2001468AE /* SceneDelegate.swift */; };
-		85906D472899F6D2001468AE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 85906D452899F6D2001468AE /* Main.storyboard */; };
+		85906D472899F6D2001468AE /* List.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 85906D452899F6D2001468AE /* List.storyboard */; };
 		85906D492899F6D3001468AE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 85906D482899F6D3001468AE /* Assets.xcassets */; };
 		85906D4C2899F6D3001468AE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 85906D4A2899F6D3001468AE /* LaunchScreen.storyboard */; };
 		85906D542899F7DB001468AE /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 85906D532899F7DB001468AE /* .gitignore */; };
@@ -19,13 +19,17 @@
 		85906D8B289A58B4001468AE /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 85906D8A289A58B4001468AE /* Kingfisher */; };
 		85906D8E289A58D4001468AE /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 85906D8D289A58D4001468AE /* Alamofire */; };
 		85906D91289A58E6001468AE /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = 85906D90289A58E6001468AE /* SwiftyJSON */; };
+		85906D95289A6D27001468AE /* ReusableViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85906D94289A6D27001468AE /* ReusableViewProtocol.swift */; };
+		85906D9B289A6DD2001468AE /* ListCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85906D99289A6DD2001468AE /* ListCollectionViewCell.swift */; };
+		85906D9C289A6DD2001468AE /* ListCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 85906D9A289A6DD2001468AE /* ListCollectionViewCell.xib */; };
+		85906D9E289A8201001468AE /* TrendListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85906D9D289A8201001468AE /* TrendListModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		85906D3C2899F6D2001468AE /* TMDBProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TMDBProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		85906D3F2899F6D2001468AE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		85906D412899F6D2001468AE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		85906D462899F6D2001468AE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		85906D462899F6D2001468AE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/List.storyboard; sourceTree = "<group>"; };
 		85906D482899F6D3001468AE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		85906D4B2899F6D3001468AE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		85906D4D2899F6D3001468AE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -33,6 +37,10 @@
 		85906D552899F88B001468AE /* APIKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKey.swift; sourceTree = "<group>"; };
 		85906D572899F9DC001468AE /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		85906D87289A5835001468AE /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
+		85906D94289A6D27001468AE /* ReusableViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableViewProtocol.swift; sourceTree = "<group>"; };
+		85906D99289A6DD2001468AE /* ListCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListCollectionViewCell.swift; sourceTree = "<group>"; };
+		85906D9A289A6DD2001468AE /* ListCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ListCollectionViewCell.xib; sourceTree = "<group>"; };
+		85906D9D289A8201001468AE /* TrendListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendListModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,11 +77,13 @@
 		85906D3E2899F6D2001468AE /* TMDBProject */ = {
 			isa = PBXGroup;
 			children = (
+				85906D9F289A8271001468AE /* Model */,
+				85906D98289A6DB1001468AE /* List */,
+				85906D93289A6D01001468AE /* Protocol */,
+				85906D92289A6CED001468AE /* Extension */,
 				85906D5A2899FA8B001468AE /* Key */,
 				85906D3F2899F6D2001468AE /* AppDelegate.swift */,
-				85906D87289A5835001468AE /* ListViewController.swift */,
 				85906D412899F6D2001468AE /* SceneDelegate.swift */,
-				85906D452899F6D2001468AE /* Main.storyboard */,
 				85906D482899F6D3001468AE /* Assets.xcassets */,
 				85906D4A2899F6D3001468AE /* LaunchScreen.storyboard */,
 				85906D4D2899F6D3001468AE /* Info.plist */,
@@ -88,6 +98,40 @@
 				85906D552899F88B001468AE /* APIKey.swift */,
 			);
 			path = Key;
+			sourceTree = "<group>";
+		};
+		85906D92289A6CED001468AE /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		85906D93289A6D01001468AE /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				85906D94289A6D27001468AE /* ReusableViewProtocol.swift */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
+		85906D98289A6DB1001468AE /* List */ = {
+			isa = PBXGroup;
+			children = (
+				85906D452899F6D2001468AE /* List.storyboard */,
+				85906D87289A5835001468AE /* ListViewController.swift */,
+				85906D99289A6DD2001468AE /* ListCollectionViewCell.swift */,
+				85906D9A289A6DD2001468AE /* ListCollectionViewCell.xib */,
+			);
+			path = List;
+			sourceTree = "<group>";
+		};
+		85906D9F289A8271001468AE /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				85906D9D289A8201001468AE /* TrendListModel.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -158,10 +202,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				85906D9C289A6DD2001468AE /* ListCollectionViewCell.xib in Resources */,
 				85906D542899F7DB001468AE /* .gitignore in Resources */,
 				85906D4C2899F6D3001468AE /* LaunchScreen.storyboard in Resources */,
 				85906D492899F6D3001468AE /* Assets.xcassets in Resources */,
-				85906D472899F6D2001468AE /* Main.storyboard in Resources */,
+				85906D472899F6D2001468AE /* List.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -173,22 +218,25 @@
 			buildActionMask = 2147483647;
 			files = (
 				85906D402899F6D2001468AE /* AppDelegate.swift in Sources */,
+				85906D9B289A6DD2001468AE /* ListCollectionViewCell.swift in Sources */,
 				85906D582899F9DC001468AE /* Constant.swift in Sources */,
+				85906D9E289A8201001468AE /* TrendListModel.swift in Sources */,
 				85906D562899F88B001468AE /* APIKey.swift in Sources */,
 				85906D88289A5835001468AE /* ListViewController.swift in Sources */,
 				85906D422899F6D2001468AE /* SceneDelegate.swift in Sources */,
+				85906D95289A6D27001468AE /* ReusableViewProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		85906D452899F6D2001468AE /* Main.storyboard */ = {
+		85906D452899F6D2001468AE /* List.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				85906D462899F6D2001468AE /* Base */,
 			);
-			name = Main.storyboard;
+			name = List.storyboard;
 			sourceTree = "<group>";
 		};
 		85906D4A2899F6D3001468AE /* LaunchScreen.storyboard */ = {
@@ -328,9 +376,11 @@
 				INFOPLIST_FILE = TMDBProject/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = List;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -356,9 +406,11 @@
 				INFOPLIST_FILE = TMDBProject/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = List;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
