@@ -114,6 +114,12 @@ extension ListViewController: UICollectionViewDelegate, UICollectionViewDataSour
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ListCollectionViewCell.resueIdentifier, for: indexPath) as? ListCollectionViewCell else { return UICollectionViewCell() }
         
+        cell.preView.layer.shadowColor = UIColor.black.cgColor
+        cell.preView.layer.masksToBounds = false
+        cell.preView.layer.shadowOffset = CGSize(width: 0, height: 4)
+        cell.preView.layer.shadowRadius = 8
+        cell.preView.layer.shadowOpacity = 0.3
+        
 //        cell.backgroundColor = .orange
         cell.listImageView.layer.cornerRadius = 10
         cell.preView.layer.cornerRadius = 10
