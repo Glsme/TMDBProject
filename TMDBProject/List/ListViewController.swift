@@ -100,11 +100,11 @@ extension ListViewController: UICollectionViewDelegate, UICollectionViewDataSour
         let spacing: CGFloat = 20
         let width = UIScreen.main.bounds.width
         let height = UIScreen.main.bounds.height
-        layout.itemSize = CGSize(width: width, height: height / 2)
+        layout.itemSize = CGSize(width: width, height: height / 2.35)
         layout.scrollDirection = .vertical
         layout.sectionInset = UIEdgeInsets(top: spacing, left: spacing, bottom: spacing, right: spacing)
         layout.minimumInteritemSpacing = spacing
-        layout.minimumLineSpacing = spacing
+        layout.minimumLineSpacing = 10
         listCollectionView.collectionViewLayout = layout
     }
     
