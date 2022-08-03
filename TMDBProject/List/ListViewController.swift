@@ -16,6 +16,7 @@ class ListViewController: UIViewController {
     @IBOutlet weak var listCollectionView: UICollectionView!
     
     var searchList: [TrendListModel] = []
+    var genresDictionary: [Int: String] = [:]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,14 +26,17 @@ class ListViewController: UIViewController {
         
         listCollectionView.register(UINib(nibName: ListCollectionViewCell.resueIdentifier, bundle: nil), forCellWithReuseIdentifier: ListCollectionViewCell.resueIdentifier)
         
-        requestTMDB(media_type: "all", time_window: "week")
+        // genres IDs load
+        requestTMDBMoiveList()
         
+        //update Trend
+        requestTMDBTrend(media_type: "all", time_window: "week")
         setCollectionViewLayout()
         
     }
     
-    func requestTMDB(media_type: String, time_window: String) {
-        let url = "\(EndPoint.TMDBURL)" + "\(media_type)/" + "\(time_window)?" + "api_key=\(APIKey.TMDB)"
+    func requestTMDBTrend(media_type: String, time_window: String) {
+        let url = "\(EndPoint.TMDBTrendURL)" + "\(media_type)/" + "\(time_window)?" + "api_key=\(APIKey.TMDB)"
         let imageURL = "https://image.tmdb.org/t/p/w500"
 //        print(url)
         
@@ -56,6 +60,27 @@ class ListViewController: UIViewController {
 //                print(self.imageList)
                 
                 self.listCollectionView.reloadData()
+                
+            case .failure(let error):
+                print(error)
+            }
+        }
+    }
+    
+    func requestTMDBMoiveList() {
+        let url = "\(EndPoint.TMDBMovieListURL)" + "\(APIKey.TMDB)" + "&language=en-US"
+        
+        AF.request(url, method: .get).validate(statusCode: 200...500).responseJSON { response in
+            switch response.result {
+            case .success(let value):
+                let json = JSON(value)
+                let array = json["genres"].arrayValue
+                
+                for num in 0...(array.count - 1) {
+                    let id = array[num]["id"].intValue
+                    let name = array[num]["name"].stringValue
+                    self.genresDictionary[id] = name
+                }
                 
             case .failure(let error):
                 print(error)
