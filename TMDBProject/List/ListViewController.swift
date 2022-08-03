@@ -123,6 +123,7 @@ extension ListViewController: UICollectionViewDelegate, UICollectionViewDataSour
         
 //        cell.backgroundColor = .orange
         cell.listImageView.layer.cornerRadius = 10
+        cell.listImageView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
         cell.preView.layer.cornerRadius = 10
         cell.configureCell(data: searchList[indexPath.row])
         
