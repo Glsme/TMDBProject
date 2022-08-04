@@ -143,6 +143,9 @@ extension ListViewController: UICollectionViewDelegate, UICollectionViewDataSour
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print(indexPath.row)
+        let sb = UIStoryboard(name: "Detail", bundle: nil)
+        guard let vc = sb.instantiateViewController(withIdentifier: DetailViewController.resueIdentifier) as? DetailViewController else { return }
+        
+        self.navigationController?.pushViewController(vc, animated: true)
     }
 }
