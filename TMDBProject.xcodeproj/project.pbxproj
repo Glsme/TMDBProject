@@ -101,7 +101,6 @@
 				85906D9F289A8271001468AE /* Model */,
 				85906D98289A6DB1001468AE /* List */,
 				85906D93289A6D01001468AE /* Protocol */,
-				85906D92289A6CED001468AE /* Extension */,
 				85906D3F2899F6D2001468AE /* AppDelegate.swift */,
 				85906D412899F6D2001468AE /* SceneDelegate.swift */,
 				85906D482899F6D3001468AE /* Assets.xcassets */,
@@ -130,6 +129,7 @@
 		85906D93289A6D01001468AE /* Protocol */ = {
 			isa = PBXGroup;
 			children = (
+				85906D92289A6CED001468AE /* Extension */,
 				85906D94289A6D27001468AE /* ReusableViewProtocol.swift */,
 			);
 			path = Protocol;

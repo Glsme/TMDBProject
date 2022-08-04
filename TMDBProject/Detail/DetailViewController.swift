@@ -10,13 +10,28 @@ import UIKit
 class DetailViewController: UIViewController {
 
     @IBOutlet weak var castTableView: UITableView!
+    @IBOutlet weak var backImageView: UIImageView!
+    @IBOutlet weak var posterImageView: UIImageView!
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var overViewLabel: UILabel!
+    
+    var data = TrendListModel(release_date: "", genre_ids: [], backdrop_path: "", title: "", overview: "", poster_path: "")
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         castTableView.delegate = self
         castTableView.dataSource = self
+        castTableView.register(UINib(nibName: CastTableViewCell.resueIdentifier, bundle: nil), forCellReuseIdentifier: CastTableViewCell.resueIdentifier)
         
+        configureCell(data: data)
+    }
+    
+    func configureCell(data: TrendListModel) {
+        backImageView.kf.setImage(with: URL(string: data.backdrop_path))
+        posterImageView.kf.setImage(with: URL(string: data.poster_path))
+        titleLabel.text = data.title
+        overViewLabel.text = data.overview
     }
 
 }
@@ -31,6 +46,5 @@ extension DetailViewController: UITableViewDelegate, UITableViewDataSource {
         
         return cell
     }
-    
     
 }

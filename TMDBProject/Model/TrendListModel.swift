@@ -16,4 +16,5 @@ struct TrendListModel {
     let backdrop_path: String
     let title: String
     let overview: String
+    let poster_path: String
 }

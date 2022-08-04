@@ -42,7 +42,7 @@ class ListViewController: UIViewController {
         let imageURL = "https://image.tmdb.org/t/p/w500"
 //        print(url)
         
-        AF.request(url, method: .get).validate(statusCode: 200...500).responseJSON { response in
+        AF.request(url, method: .get).validate(statusCode: 200...500).responseData { response in
             switch response.result {
             case .success(let value):
                 let json = JSON(value)
@@ -53,6 +53,7 @@ class ListViewController: UIViewController {
                     let title = item["original_title"].string ?? item["original_name"].stringValue
                     let release_date = item["release_date"].string ?? item["first_air_date"].stringValue
                     let genre_ids = item["genre_ids"].arrayValue
+                    let poster_path = imageURL + item["poster_path"].stringValue
                     var genreArray: [String] = []
                     
                     for target in genre_ids {
@@ -60,7 +61,7 @@ class ListViewController: UIViewController {
                     }
                     
                     let overview = item["overview"].stringValue
-                    let data = TrendListModel(release_date: release_date, genre_ids: genreArray, backdrop_path: image, title: title, overview: overview)
+                    let data = TrendListModel(release_date: release_date, genre_ids: genreArray, backdrop_path: image, title: title, overview: overview, poster_path: poster_path)
                     
                     self.searchList.append(data)
                 }
@@ -77,7 +78,7 @@ class ListViewController: UIViewController {
     func requestTMDBMoiveList() {
         let url = "\(EndPoint.TMDBMovieListURL)" + "\(APIKey.TMDB)" + "&language=en-US"
         
-        AF.request(url, method: .get).validate(statusCode: 200...500).responseJSON { response in
+        AF.request(url, method: .get).validate(statusCode: 200...500).responseData { response in
             switch response.result {
             case .success(let value):
                 let json = JSON(value)
@@ -130,7 +131,7 @@ extension ListViewController: UICollectionViewDelegate, UICollectionViewDataSour
         cell.preView.layer.shadowColor = UIColor.black.cgColor
         cell.preView.layer.masksToBounds = false
         cell.preView.layer.shadowOffset = CGSize(width: 0, height: 4)
-        cell.preView.layer.shadowRadius = 8
+        cell.preView.layer.shadowRadius = 5
         cell.preView.layer.shadowOpacity = 0.3
         
 //        cell.backgroundColor = .orange
@@ -143,8 +144,10 @@ extension ListViewController: UICollectionViewDelegate, UICollectionViewDataSour
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
         let sb = UIStoryboard(name: "Detail", bundle: nil)
         guard let vc = sb.instantiateViewController(withIdentifier: DetailViewController.resueIdentifier) as? DetailViewController else { return }
+        vc.data = searchList[indexPath.row]
         
         self.navigationController?.pushViewController(vc, animated: true)
     }

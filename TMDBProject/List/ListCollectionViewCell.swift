@@ -30,6 +30,5 @@ class ListCollectionViewCell: UICollectionViewCell {
         titleLabel.text = data.title
         overViewLabel.text = data.overview
         hashTagLabel.text = "#" + data.genre_ids.joined(separator: " #")
-        
     }
 }
