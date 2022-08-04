@@ -12,6 +12,8 @@
 		855987D6289BBB8000A5E724 /* CastTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 855987D4289BBB8000A5E724 /* CastTableViewCell.swift */; };
 		855987D7289BBB8000A5E724 /* CastTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 855987D5289BBB8000A5E724 /* CastTableViewCell.xib */; };
 		855987D9289BE96D00A5E724 /* MovieCastModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 855987D8289BE96D00A5E724 /* MovieCastModel.swift */; };
+		856E5C3E289C037800CA058B /* OverViewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 856E5C3C289C037800CA058B /* OverViewTableViewCell.swift */; };
+		856E5C3F289C037800CA058B /* OverViewTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 856E5C3D289C037800CA058B /* OverViewTableViewCell.xib */; };
 		85906D402899F6D2001468AE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85906D3F2899F6D2001468AE /* AppDelegate.swift */; };
 		85906D422899F6D2001468AE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85906D412899F6D2001468AE /* SceneDelegate.swift */; };
 		85906D472899F6D2001468AE /* List.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 85906D452899F6D2001468AE /* List.storyboard */; };
@@ -36,6 +38,8 @@
 		855987D4289BBB8000A5E724 /* CastTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastTableViewCell.swift; sourceTree = "<group>"; };
 		855987D5289BBB8000A5E724 /* CastTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CastTableViewCell.xib; sourceTree = "<group>"; };
 		855987D8289BE96D00A5E724 /* MovieCastModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCastModel.swift; sourceTree = "<group>"; };
+		856E5C3C289C037800CA058B /* OverViewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverViewTableViewCell.swift; sourceTree = "<group>"; };
+		856E5C3D289C037800CA058B /* OverViewTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OverViewTableViewCell.xib; sourceTree = "<group>"; };
 		85906D3C2899F6D2001468AE /* TMDBProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TMDBProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		85906D3F2899F6D2001468AE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		85906D412899F6D2001468AE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -70,6 +74,8 @@
 		855987CD289BB5B800A5E724 /* Detail */ = {
 			isa = PBXGroup;
 			children = (
+				856E5C3D289C037800CA058B /* OverViewTableViewCell.xib */,
+				856E5C3C289C037800CA058B /* OverViewTableViewCell.swift */,
 				855987CE289BB5C400A5E724 /* Detail.storyboard */,
 				855987D4289BBB8000A5E724 /* CastTableViewCell.swift */,
 				855987D5289BBB8000A5E724 /* CastTableViewCell.xib */,
@@ -229,6 +235,7 @@
 				855987D7289BBB8000A5E724 /* CastTableViewCell.xib in Resources */,
 				85906D542899F7DB001468AE /* .gitignore in Resources */,
 				85906D4C2899F6D3001468AE /* LaunchScreen.storyboard in Resources */,
+				856E5C3F289C037800CA058B /* OverViewTableViewCell.xib in Resources */,
 				85906D492899F6D3001468AE /* Assets.xcassets in Resources */,
 				855987CF289BB5C400A5E724 /* Detail.storyboard in Resources */,
 				85906D472899F6D2001468AE /* List.storyboard in Resources */,
@@ -246,6 +253,7 @@
 				85906D402899F6D2001468AE /* AppDelegate.swift in Sources */,
 				85906D9B289A6DD2001468AE /* ListCollectionViewCell.swift in Sources */,
 				85906D582899F9DC001468AE /* Constant.swift in Sources */,
+				856E5C3E289C037800CA058B /* OverViewTableViewCell.swift in Sources */,
 				85906D9E289A8201001468AE /* TrendListModel.swift in Sources */,
 				85906D562899F88B001468AE /* APIKey.swift in Sources */,
 				855987D6289BBB8000A5E724 /* CastTableViewCell.swift in Sources */,

@@ -28,6 +28,7 @@ class DetailViewController: UIViewController {
         castTableView.delegate = self
         castTableView.dataSource = self
         castTableView.register(UINib(nibName: CastTableViewCell.resueIdentifier, bundle: nil), forCellReuseIdentifier: CastTableViewCell.resueIdentifier)
+        castTableView.register(UINib(nibName: OverViewTableViewCell.resueIdentifier, bundle: nil), forCellReuseIdentifier: OverViewTableViewCell.resueIdentifier)
         
         configureUI(data: data)
         requestTMDBCast(id: data.id)
@@ -37,7 +38,6 @@ class DetailViewController: UIViewController {
         backImageView.kf.setImage(with: URL(string: data.backdrop_path))
         posterImageView.kf.setImage(with: URL(string: data.poster_path))
         titleLabel.text = data.title
-        overViewLabel.text = data.overview
     }
     
     func requestTMDBCast(id: Int) {
@@ -80,22 +80,62 @@ class DetailViewController: UIViewController {
 
 extension DetailViewController: UITableViewDelegate, UITableViewDataSource {
     
+    func numberOfSections(in tableView: UITableView) -> Int {
+        3
+    }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        if section == 0 {
+            return "OverView"
+        } else if section == 1 {
+            return "Cast"
+        } else if section == 2 {
+            return "Crew"
+        } else {
+            return ""
+        }
+    }
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return UIScreen.main.bounds.height * 0.15
+        if indexPath.section == 0 {
+            return UIScreen.main.bounds.height * 0.15
+        } else {
+            return UIScreen.main.bounds.height * 0.2
+        }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return casts.count
+        if section == 0 {
+            return 1
+        } else if section == 1 {
+            return casts.count
+        } else if section == 2 {
+            return 1
+        } else {
+            return 0
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: CastTableViewCell.resueIdentifier, for: indexPath) as? CastTableViewCell else { return UITableViewCell() }
         
-        cell.nameLabel.text = casts[indexPath.row].name
-        cell.profileImageView.layer.cornerRadius = 20
-        cell.profileImageView.kf.setImage(with: URL(string: casts[indexPath.row].profilePath))
-        cell.detailLabel.text = "\(casts[indexPath.row].originalName) / \"No.\(casts[indexPath.row].id)\""
-        
-        return cell
+        if indexPath.section == 0 {
+            guard let overviewCell = tableView.dequeueReusableCell(withIdentifier: OverViewTableViewCell.resueIdentifier, for: indexPath) as? OverViewTableViewCell else { return UITableViewCell() }
+            
+            overviewCell.overViewLabel.text = data.overview
+            
+            return overviewCell
+        } else if indexPath.section == 1 {
+            guard let castCell = tableView.dequeueReusableCell(withIdentifier: CastTableViewCell.resueIdentifier, for: indexPath) as? CastTableViewCell else { return UITableViewCell() }
+            
+            castCell.nameLabel.text = casts[indexPath.row].name
+            castCell.profileImageView.layer.cornerRadius = 10
+            castCell.profileImageView.kf.setImage(with: URL(string: casts[indexPath.row].profilePath))
+            castCell.detailLabel.text = "\(casts[indexPath.row].originalName) / \"No.\(casts[indexPath.row].id)\""
+            return castCell
+        } else {
+            return UITableViewCell()
+        }
+
+
     }
 }
