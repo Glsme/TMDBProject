@@ -17,13 +17,17 @@ class ListViewController: UIViewController {
     
     var searchList: [TrendListModel] = []
     var genresDictionary: [Int: String] = [:]
+    var startPage = 1
     var totalCount = 0
+    var mediaType = "all"
+    var timeWindow = "day"
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         listCollectionView.delegate = self
         listCollectionView.dataSource = self
+        listCollectionView.prefetchDataSource = self // Pagenation
         
         listCollectionView.register(UINib(nibName: ListCollectionViewCell.resueIdentifier, bundle: nil), forCellWithReuseIdentifier: ListCollectionViewCell.resueIdentifier)
         
@@ -31,14 +35,14 @@ class ListViewController: UIViewController {
         requestTMDBMoiveList()
         
         //update Trend
-        requestTMDBTrend(media_type: "all", time_window: "day")
+        requestTMDBTrend(media_type: mediaType, time_window: timeWindow, page: startPage)
         setCollectionViewLayout()
         
     }
     
     // Movie & TV 적용
-    func requestTMDBTrend(media_type: String, time_window: String) {
-        let url = "\(EndPoint.TMDBTrendURL)" + "\(media_type)/" + "\(time_window)?" + "api_key=\(APIKey.TMDB)"
+    func requestTMDBTrend(media_type: String, time_window: String, page: Int) {
+        let url = "\(EndPoint.TMDBTrendURL)" + "\(media_type)/" + "\(time_window)?" + "api_key=\(APIKey.TMDB)" + "&page=\(page)"
         let imageURL = "https://image.tmdb.org/t/p/w500"
 //        print(url)
         
@@ -47,6 +51,8 @@ class ListViewController: UIViewController {
             case .success(let value):
                 let json = JSON(value)
                 print("JSON: \(json)")
+                
+                self.totalCount = json["total_results"].intValue
                 
                 for item in json["results"].arrayValue {
                     let image = imageURL + item["backdrop_path"].stringValue
@@ -66,7 +72,7 @@ class ListViewController: UIViewController {
                     self.searchList.append(data)
                 }
                 
-                self.totalCount = self.searchList.count
+//                self.totalCount = self.searchList.count
                 self.listCollectionView.reloadData()
                 
             case .failure(let error):
@@ -97,11 +103,13 @@ class ListViewController: UIViewController {
     }
 }
 
+// Pagenation
 extension ListViewController: UICollectionViewDataSourcePrefetching {
     func collectionView(_ collectionView: UICollectionView, prefetchItemsAt indexPaths: [IndexPath]) {
         for indexPath in indexPaths {
-            if searchList.count - 1 == indexPath.item && searchList.count < totalCount {
-                
+            if searchList.count - 5 == indexPath.item && searchList.count < totalCount {
+                startPage += 1
+                requestTMDBTrend(media_type: mediaType, time_window: timeWindow, page: startPage)
             }
         }
     }
@@ -149,6 +157,7 @@ extension ListViewController: UICollectionViewDelegate, UICollectionViewDataSour
         guard let vc = sb.instantiateViewController(withIdentifier: DetailViewController.resueIdentifier) as? DetailViewController else { return }
         vc.data = searchList[indexPath.row]
         
+        vc.navigationItem.title = "출연/제작"
         self.navigationController?.pushViewController(vc, animated: true)
     }
 }

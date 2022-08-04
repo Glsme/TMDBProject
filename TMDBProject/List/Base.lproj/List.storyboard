@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--List View Controller-->
+        <!-- -->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController storyboardIdentifier="ListViewController" id="BYZ-38-t0r" customClass="ListViewController" customModule="TMDBProject" customModuleProvider="target" sceneMemberID="viewController">
@@ -48,7 +48,7 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="wmH-1z-2jG" secondAttribute="bottom" id="xnc-2f-pJi"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="TMj-3h-1ia">
+                    <navigationItem key="navigationItem" title=" " id="TMj-3h-1ia">
                         <barButtonItem key="leftBarButtonItem" image="list.dash" catalog="system" id="NjU-rA-8zd"/>
                         <barButtonItem key="rightBarButtonItem" image="magnifyingglass" catalog="system" id="h0q-PL-abS"/>
                     </navigationItem>
