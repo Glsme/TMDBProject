@@ -41,6 +41,9 @@ class DetailViewController: UIViewController {
     }
     
     func requestTMDBCast(id: Int) {
+        
+        list.removeAll()
+        
         let url = "https://api.themoviedb.org/3/movie/\(id)/credits?api_key=\(APIKey.TMDB)&language=en-US"
         AF.request(url, method: .get).validate(statusCode: 200...500).responseData { response in
             switch response.result {
@@ -48,7 +51,7 @@ class DetailViewController: UIViewController {
                 let json = JSON(value)
                 print(json)
                 
-                for personInfo in json["crew"].arrayValue {
+                for personInfo in json["cast"].arrayValue {
                     guard let job = personInfo["known_for_department"].string else { return }
                     
                     if job == "Acting" {
@@ -56,7 +59,7 @@ class DetailViewController: UIViewController {
                     }
                 }
                 
-                print(self.list)
+//                print(self.list)
                 
                 self.castTableView.reloadData()
                 
