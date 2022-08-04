@@ -17,6 +17,7 @@ class ListViewController: UIViewController {
     
     var searchList: [TrendListModel] = []
     var genresDictionary: [Int: String] = [:]
+    var totalCount = 0
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,7 +31,7 @@ class ListViewController: UIViewController {
         requestTMDBMoiveList()
         
         //update Trend
-        requestTMDBTrend(media_type: "all", time_window: "week")
+        requestTMDBTrend(media_type: "all", time_window: "day")
         setCollectionViewLayout()
         
     }
@@ -64,6 +65,7 @@ class ListViewController: UIViewController {
                     self.searchList.append(data)
                 }
                 
+                self.totalCount = self.searchList.count
                 self.listCollectionView.reloadData()
                 
             case .failure(let error):
@@ -89,6 +91,16 @@ class ListViewController: UIViewController {
                 
             case .failure(let error):
                 print(error)
+            }
+        }
+    }
+}
+
+extension ListViewController: UICollectionViewDataSourcePrefetching {
+    func collectionView(_ collectionView: UICollectionView, prefetchItemsAt indexPaths: [IndexPath]) {
+        for indexPath in indexPaths {
+            if searchList.count - 1 == indexPath.item && searchList.count < totalCount {
+                
             }
         }
     }
@@ -128,5 +140,9 @@ extension ListViewController: UICollectionViewDelegate, UICollectionViewDataSour
         cell.configureCell(data: searchList[indexPath.row])
         
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        print(indexPath.row)
     }
 }

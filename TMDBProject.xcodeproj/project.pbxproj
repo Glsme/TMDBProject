@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		855987CF289BB5C400A5E724 /* Detail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 855987CE289BB5C400A5E724 /* Detail.storyboard */; };
+		855987D1289BB60600A5E724 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 855987D0289BB60600A5E724 /* DetailViewController.swift */; };
+		855987D6289BBB8000A5E724 /* CastTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 855987D4289BBB8000A5E724 /* CastTableViewCell.swift */; };
+		855987D7289BBB8000A5E724 /* CastTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 855987D5289BBB8000A5E724 /* CastTableViewCell.xib */; };
 		85906D402899F6D2001468AE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85906D3F2899F6D2001468AE /* AppDelegate.swift */; };
 		85906D422899F6D2001468AE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85906D412899F6D2001468AE /* SceneDelegate.swift */; };
 		85906D472899F6D2001468AE /* List.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 85906D452899F6D2001468AE /* List.storyboard */; };
@@ -26,6 +30,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		855987CE289BB5C400A5E724 /* Detail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Detail.storyboard; sourceTree = "<group>"; };
+		855987D0289BB60600A5E724 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		855987D4289BBB8000A5E724 /* CastTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastTableViewCell.swift; sourceTree = "<group>"; };
+		855987D5289BBB8000A5E724 /* CastTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CastTableViewCell.xib; sourceTree = "<group>"; };
 		85906D3C2899F6D2001468AE /* TMDBProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TMDBProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		85906D3F2899F6D2001468AE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		85906D412899F6D2001468AE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -57,6 +65,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		855987CD289BB5B800A5E724 /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				855987CE289BB5C400A5E724 /* Detail.storyboard */,
+				855987D4289BBB8000A5E724 /* CastTableViewCell.swift */,
+				855987D5289BBB8000A5E724 /* CastTableViewCell.xib */,
+				855987D0289BB60600A5E724 /* DetailViewController.swift */,
+			);
+			path = Detail;
+			sourceTree = "<group>";
+		};
 		85906D332899F6D2001468AE = {
 			isa = PBXGroup;
 			children = (
@@ -77,6 +96,7 @@
 		85906D3E2899F6D2001468AE /* TMDBProject */ = {
 			isa = PBXGroup;
 			children = (
+				855987CD289BB5B800A5E724 /* Detail */,
 				85906D5A2899FA8B001468AE /* Key */,
 				85906D9F289A8271001468AE /* Model */,
 				85906D98289A6DB1001468AE /* List */,
@@ -203,9 +223,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				85906D9C289A6DD2001468AE /* ListCollectionViewCell.xib in Resources */,
+				855987D7289BBB8000A5E724 /* CastTableViewCell.xib in Resources */,
 				85906D542899F7DB001468AE /* .gitignore in Resources */,
 				85906D4C2899F6D3001468AE /* LaunchScreen.storyboard in Resources */,
 				85906D492899F6D3001468AE /* Assets.xcassets in Resources */,
+				855987CF289BB5C400A5E724 /* Detail.storyboard in Resources */,
 				85906D472899F6D2001468AE /* List.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -217,11 +239,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				855987D1289BB60600A5E724 /* DetailViewController.swift in Sources */,
 				85906D402899F6D2001468AE /* AppDelegate.swift in Sources */,
 				85906D9B289A6DD2001468AE /* ListCollectionViewCell.swift in Sources */,
 				85906D582899F9DC001468AE /* Constant.swift in Sources */,
 				85906D9E289A8201001468AE /* TrendListModel.swift in Sources */,
 				85906D562899F88B001468AE /* APIKey.swift in Sources */,
+				855987D6289BBB8000A5E724 /* CastTableViewCell.swift in Sources */,
 				85906D88289A5835001468AE /* ListViewController.swift in Sources */,
 				85906D422899F6D2001468AE /* SceneDelegate.swift in Sources */,
 				85906D95289A6D27001468AE /* ReusableViewProtocol.swift in Sources */,
