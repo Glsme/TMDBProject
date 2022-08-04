@@ -19,6 +19,7 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var overViewLabel: UILabel!
     
     var casts: [MovieCastModel] = []
+    var crews: [MovieCrewModel] = []
     var list: [String] = []
     var data = TrendListModel(release_date: "", genre_ids: [], backdrop_path: "", title: "", overview: "", poster_path: "", id: 0)
     
@@ -66,8 +67,19 @@ class DetailViewController: UIViewController {
                     }
                 }
                 
+                for personInfo in json["crew"].arrayValue {
+                    let profilePath = EndPoint.TMDBImageURL + personInfo["profile_path"].stringValue
+                    let name = personInfo["name"].stringValue
+                    let known_for_department = personInfo["known_for_department"].stringValue
+                    
+                    let data = MovieCrewModel(profilePath: profilePath, name: name, knownForDepartment: known_for_department)
+                    
+                    self.crews.append(data)
+                }
+                
 //                print(self.casts)
                 
+                // TableView 갱신
                 self.castTableView.reloadData()
                 
             case .failure(let error):
@@ -110,7 +122,7 @@ extension DetailViewController: UITableViewDelegate, UITableViewDataSource {
         } else if section == 1 {
             return casts.count
         } else if section == 2 {
-            return 1
+            return crews.count
         } else {
             return 0
         }
@@ -132,7 +144,17 @@ extension DetailViewController: UITableViewDelegate, UITableViewDataSource {
             castCell.profileImageView.kf.setImage(with: URL(string: casts[indexPath.row].profilePath))
             castCell.detailLabel.text = "\(casts[indexPath.row].originalName) / \"No.\(casts[indexPath.row].id)\""
             return castCell
-        } else {
+        } else if indexPath.section == 2 {
+            guard let castCell = tableView.dequeueReusableCell(withIdentifier: CastTableViewCell.resueIdentifier, for: indexPath) as? CastTableViewCell else { return UITableViewCell() }
+            
+            castCell.nameLabel.text = crews[indexPath.row].name
+            castCell.profileImageView.layer.cornerRadius = 10
+            castCell.profileImageView.kf.setImage(with: URL(string: crews[indexPath.row].profilePath))
+            castCell.detailLabel.text = crews[indexPath.row].knownForDepartment
+            return castCell
+        }
+        
+        else {
             return UITableViewCell()
         }
 
