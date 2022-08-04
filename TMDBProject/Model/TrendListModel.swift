@@ -7,9 +7,6 @@
 
 import Foundation
 
-import Alamofire
-import SwiftyJSON
-
 struct TrendListModel {
     let release_date: String
     let genre_ids: [String]
@@ -17,4 +14,5 @@ struct TrendListModel {
     let title: String
     let overview: String
     let poster_path: String
+    let id: Int
 }

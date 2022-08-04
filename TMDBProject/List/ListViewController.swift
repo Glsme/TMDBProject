@@ -19,7 +19,7 @@ class ListViewController: UIViewController {
     var genresDictionary: [Int: String] = [:]
     var startPage = 1
     var totalCount = 0
-    var mediaType = "all"
+    var mediaType = "movie"
     var timeWindow = "day"
 
     override func viewDidLoad() {
@@ -60,6 +60,7 @@ class ListViewController: UIViewController {
                     let release_date = item["release_date"].string ?? item["first_air_date"].stringValue
                     let genre_ids = item["genre_ids"].arrayValue
                     let poster_path = imageURL + item["poster_path"].stringValue
+                    let id = item["id"].intValue
                     var genreArray: [String] = []
                     
                     for target in genre_ids {
@@ -67,7 +68,7 @@ class ListViewController: UIViewController {
                     }
                     
                     let overview = item["overview"].stringValue
-                    let data = TrendListModel(release_date: release_date, genre_ids: genreArray, backdrop_path: image, title: title, overview: overview, poster_path: poster_path)
+                    let data = TrendListModel(release_date: release_date, genre_ids: genreArray, backdrop_path: image, title: title, overview: overview, poster_path: poster_path, id: id)
                     
                     self.searchList.append(data)
                 }
