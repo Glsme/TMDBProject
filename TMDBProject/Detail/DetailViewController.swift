@@ -24,10 +24,10 @@ class DetailViewController: UIViewController {
         castTableView.dataSource = self
         castTableView.register(UINib(nibName: CastTableViewCell.resueIdentifier, bundle: nil), forCellReuseIdentifier: CastTableViewCell.resueIdentifier)
         
-        configureCell(data: data)
+        configureUI(data: data)
     }
     
-    func configureCell(data: TrendListModel) {
+    func configureUI(data: TrendListModel) {
         backImageView.kf.setImage(with: URL(string: data.backdrop_path))
         posterImageView.kf.setImage(with: URL(string: data.poster_path))
         titleLabel.text = data.title
