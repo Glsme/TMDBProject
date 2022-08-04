@@ -112,7 +112,7 @@ extension DetailViewController: UITableViewDelegate, UITableViewDataSource {
         if indexPath.section == 0 {
             return UIScreen.main.bounds.height * 0.15
         } else {
-            return UIScreen.main.bounds.height * 0.2
+            return UIScreen.main.bounds.height * 0.125
         }
     }
     
