@@ -43,7 +43,6 @@ class ListViewController: UIViewController {
     // Movie & TV 적용
     func requestTMDBTrend(media_type: String, time_window: String, page: Int) {
         let url = "\(EndPoint.TMDBTrendURL)" + "\(media_type)/" + "\(time_window)?" + "api_key=\(APIKey.TMDB)" + "&page=\(page)"
-        let imageURL = "https://image.tmdb.org/t/p/w500"
 //        print(url)
         
         AF.request(url, method: .get).validate(statusCode: 200...500).responseData { response in
@@ -55,11 +54,11 @@ class ListViewController: UIViewController {
                 self.totalCount = json["total_results"].intValue
                 
                 for item in json["results"].arrayValue {
-                    let image = imageURL + item["backdrop_path"].stringValue
+                    let image = EndPoint.TMDBImageURL + item["backdrop_path"].stringValue
                     let title = item["original_title"].string ?? item["original_name"].stringValue
                     let release_date = item["release_date"].string ?? item["first_air_date"].stringValue
                     let genre_ids = item["genre_ids"].arrayValue
-                    let poster_path = imageURL + item["poster_path"].stringValue
+                    let poster_path = EndPoint.TMDBImageURL + item["poster_path"].stringValue
                     let id = item["id"].intValue
                     var genreArray: [String] = []
                     

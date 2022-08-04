@@ -18,7 +18,7 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var overViewLabel: UILabel!
     
-//    var casts:
+    var casts: [MovieCastModel] = []
     var list: [String] = []
     var data = TrendListModel(release_date: "", genre_ids: [], backdrop_path: "", title: "", overview: "", poster_path: "", id: 0)
     
@@ -55,11 +55,18 @@ class DetailViewController: UIViewController {
                     guard let job = personInfo["known_for_department"].string else { return }
                     
                     if job == "Acting" {
-                        self.list.append(personInfo["name"].stringValue)
+                        let profilePath = EndPoint.TMDBImageURL + personInfo["profile_path"].stringValue
+                        let name = personInfo["name"].stringValue
+                        let original_name = personInfo["original_name"].stringValue
+                        let id = personInfo["id"].intValue
+                        
+                        let data = MovieCastModel(name: name,originalName: original_name, profilePath: profilePath, id: id)
+                        
+                        self.casts.append(data)
                     }
                 }
                 
-//                print(self.list)
+//                print(self.casts)
                 
                 self.castTableView.reloadData()
                 
@@ -72,16 +79,23 @@ class DetailViewController: UIViewController {
 }
 
 extension DetailViewController: UITableViewDelegate, UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UIScreen.main.bounds.height * 0.15
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return list.count
+        return casts.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: CastTableViewCell.resueIdentifier, for: indexPath) as? CastTableViewCell else { return UITableViewCell() }
         
-        cell.nameLabel.text = list[indexPath.row]
+        cell.nameLabel.text = casts[indexPath.row].name
+        cell.profileImageView.layer.cornerRadius = 20
+        cell.profileImageView.kf.setImage(with: URL(string: casts[indexPath.row].profilePath))
+        cell.detailLabel.text = "\(casts[indexPath.row].originalName) / \"No.\(casts[indexPath.row].id)\""
         
         return cell
     }
-    
 }

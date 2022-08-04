@@ -7,7 +7,8 @@
 
 import Foundation
 
-struct MoiveCastModel {
+struct MovieCastModel {
+    let name: String
     let originalName: String
     let profilePath: String
     let id: Int
