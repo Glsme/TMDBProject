@@ -65,6 +65,20 @@
                                     <constraint firstAttribute="width" constant="20" id="idG-zD-H4L"/>
                                 </constraints>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="27J-hH-eWy">
+                                <rect key="frame" x="376" y="10" width="25" height="25"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="25" id="hfK-ij-5Pp"/>
+                                    <constraint firstAttribute="width" secondItem="27J-hH-eWy" secondAttribute="height" id="rrf-5k-AOw"/>
+                                </constraints>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" image="paperclip" catalog="system"/>
+                                <connections>
+                                    <action selector="clipButtonClicked:" destination="gTV-IL-0wX" eventType="touchUpInside" id="HOk-Ly-GBa"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
@@ -79,12 +93,14 @@
                             <constraint firstItem="W4P-RF-DYs" firstAttribute="leading" secondItem="h2p-Oo-bd9" secondAttribute="leading" id="Ctf-oX-r8w"/>
                             <constraint firstItem="m5k-ew-RvK" firstAttribute="trailing" secondItem="eKq-E6-0mA" secondAttribute="trailing" id="HmE-vw-L9N"/>
                             <constraint firstAttribute="width" secondItem="4M5-4U-haU" secondAttribute="height" multiplier="1.1" id="JfY-31-qCW"/>
+                            <constraint firstItem="27J-hH-eWy" firstAttribute="top" secondItem="4M5-4U-haU" secondAttribute="top" constant="10" id="M0p-6t-WAF"/>
                             <constraint firstItem="5Tt-PG-HGr" firstAttribute="top" secondItem="4M5-4U-haU" secondAttribute="top" id="WdP-mL-E2t"/>
                             <constraint firstAttribute="trailing" secondItem="5Tt-PG-HGr" secondAttribute="trailing" id="eAt-iT-Mzc"/>
                             <constraint firstItem="W4P-RF-DYs" firstAttribute="top" secondItem="h2p-Oo-bd9" secondAttribute="bottom" constant="8" id="hRZ-nb-FqH"/>
                             <constraint firstItem="M5S-Kn-WvC" firstAttribute="centerY" secondItem="3ze-yv-g0W" secondAttribute="centerY" id="la5-oH-pRE"/>
                             <constraint firstItem="m5k-ew-RvK" firstAttribute="centerY" secondItem="3ze-yv-g0W" secondAttribute="centerY" id="nBQ-N4-Zwo"/>
                             <constraint firstItem="3ze-yv-g0W" firstAttribute="bottom" secondItem="4M5-4U-haU" secondAttribute="bottomMargin" id="pS4-g8-NZj"/>
+                            <constraint firstAttribute="trailing" secondItem="27J-hH-eWy" secondAttribute="trailing" constant="10" id="xom-Xf-fGQ"/>
                             <constraint firstItem="M5S-Kn-WvC" firstAttribute="trailing" secondItem="eKq-E6-0mA" secondAttribute="trailing" id="xu7-tB-lxF"/>
                             <constraint firstItem="3ze-yv-g0W" firstAttribute="leading" secondItem="4M5-4U-haU" secondAttribute="leadingMargin" id="y5k-VT-2CA"/>
                         </constraints>
@@ -117,6 +133,7 @@
             </constraints>
             <size key="customSize" width="484" height="497"/>
             <connections>
+                <outlet property="clipButton" destination="27J-hH-eWy" id="WoL-DS-iZa"/>
                 <outlet property="dateLabel" destination="Xiv-Sb-kPs" id="ays-cy-Nfk"/>
                 <outlet property="hashTagLabel" destination="eaN-qH-N47" id="Pu1-Qq-CFw"/>
                 <outlet property="listImageView" destination="5Tt-PG-HGr" id="6gj-Cy-ZZI"/>
@@ -129,6 +146,7 @@
     </objects>
     <resources>
         <image name="chevron.right" catalog="system" width="96" height="128"/>
+        <image name="paperclip" catalog="system" width="121" height="128"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

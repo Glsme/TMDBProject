@@ -146,6 +146,9 @@ extension ListViewController: UICollectionViewDelegate, UICollectionViewDataSour
         cell.listImageView.layer.cornerRadius = 10
         cell.listImageView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
         cell.preView.layer.cornerRadius = 10
+        
+        cell.clipButton.layer.cornerRadius = cell.clipButton.frame.height / 2
+        
         cell.configureCell(data: searchList[indexPath.row])
         
         return cell
@@ -155,6 +158,7 @@ extension ListViewController: UICollectionViewDelegate, UICollectionViewDataSour
         
         let sb = UIStoryboard(name: "Detail", bundle: nil)
         guard let vc = sb.instantiateViewController(withIdentifier: DetailViewController.resueIdentifier) as? DetailViewController else { return }
+        
         vc.data = searchList[indexPath.row]
         
         vc.navigationItem.title = "출연/제작"

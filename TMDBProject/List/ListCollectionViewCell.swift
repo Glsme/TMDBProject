@@ -17,6 +17,7 @@ class ListCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var overViewLabel: UILabel!
+    @IBOutlet weak var clipButton: UIButton!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -31,4 +32,8 @@ class ListCollectionViewCell: UICollectionViewCell {
         overViewLabel.text = data.overview
         hashTagLabel.text = "#" + data.genre_ids.joined(separator: " #")
     }
+    
+    @IBAction func clipButtonClicked(_ sender: Any) {
+    }
+    
 }
