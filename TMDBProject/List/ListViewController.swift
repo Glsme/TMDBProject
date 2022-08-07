@@ -15,7 +15,7 @@ class ListViewController: UIViewController {
     
     @IBOutlet weak var listCollectionView: UICollectionView!
     
-    var searchList: [TrendListModel] = []
+    static var searchList: [TrendListModel] = []
     var genresDictionary: [Int: String] = [:]
     var startPage = 1
     var totalCount = 0
@@ -40,7 +40,7 @@ class ListViewController: UIViewController {
         
     }
     
-    // Movie & TV 적용
+    // Movie 적용
     func requestTMDBTrend(media_type: String, time_window: String, page: Int) {
         let url = "\(EndPoint.TMDBTrendURL)" + "\(media_type)/" + "\(time_window)?" + "api_key=\(APIKey.TMDB)" + "&page=\(page)"
 //        print(url)
@@ -69,7 +69,7 @@ class ListViewController: UIViewController {
                     let overview = item["overview"].stringValue
                     let data = TrendListModel(release_date: release_date, genre_ids: genreArray, backdrop_path: image, title: title, overview: overview, poster_path: poster_path, id: id)
                     
-                    self.searchList.append(data)
+                    ListViewController.searchList.append(data)
                 }
                 
 //                self.totalCount = self.searchList.count
@@ -107,7 +107,7 @@ class ListViewController: UIViewController {
 extension ListViewController: UICollectionViewDataSourcePrefetching {
     func collectionView(_ collectionView: UICollectionView, prefetchItemsAt indexPaths: [IndexPath]) {
         for indexPath in indexPaths {
-            if searchList.count - 5 == indexPath.item && searchList.count < totalCount {
+            if ListViewController.searchList.count - 5 == indexPath.item && ListViewController.searchList.count < totalCount {
                 startPage += 1
                 requestTMDBTrend(media_type: mediaType, time_window: timeWindow, page: startPage)
             }
@@ -130,7 +130,7 @@ extension ListViewController: UICollectionViewDelegate, UICollectionViewDataSour
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return searchList.count
+        return ListViewController.searchList.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -148,8 +148,9 @@ extension ListViewController: UICollectionViewDelegate, UICollectionViewDataSour
         cell.preView.layer.cornerRadius = 10
         
         cell.clipButton.layer.cornerRadius = cell.clipButton.frame.height / 2
+        cell.clipButton.tag = indexPath.row
         
-        cell.configureCell(data: searchList[indexPath.row])
+        cell.configureCell(data: ListViewController.searchList[indexPath.row])
         
         return cell
     }
@@ -159,7 +160,7 @@ extension ListViewController: UICollectionViewDelegate, UICollectionViewDataSour
         let sb = UIStoryboard(name: "Detail", bundle: nil)
         guard let vc = sb.instantiateViewController(withIdentifier: DetailViewController.resueIdentifier) as? DetailViewController else { return }
         
-        vc.data = searchList[indexPath.row]
+        vc.data = ListViewController.searchList[indexPath.row]
         
         vc.navigationItem.title = "출연/제작"
         self.navigationController?.pushViewController(vc, animated: true)
