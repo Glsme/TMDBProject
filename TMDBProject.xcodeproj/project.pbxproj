@@ -12,6 +12,8 @@
 		855987D6289BBB8000A5E724 /* CastTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 855987D4289BBB8000A5E724 /* CastTableViewCell.swift */; };
 		855987D7289BBB8000A5E724 /* CastTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 855987D5289BBB8000A5E724 /* CastTableViewCell.xib */; };
 		855987D9289BE96D00A5E724 /* MovieCastModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 855987D8289BE96D00A5E724 /* MovieCastModel.swift */; };
+		855E10B1289FEA3D00024E42 /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 855E10B0289FEA3D00024E42 /* Storyboard.storyboard */; };
+		855E10B3289FEB4900024E42 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 855E10B2289FEB4900024E42 /* WebViewController.swift */; };
 		856E5C3E289C037800CA058B /* OverViewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 856E5C3C289C037800CA058B /* OverViewTableViewCell.swift */; };
 		856E5C3F289C037800CA058B /* OverViewTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 856E5C3D289C037800CA058B /* OverViewTableViewCell.xib */; };
 		856E5C42289C0CEB00CA058B /* MoiveCrewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 856E5C41289C0CEA00CA058B /* MoiveCrewModel.swift */; };
@@ -39,6 +41,8 @@
 		855987D4289BBB8000A5E724 /* CastTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastTableViewCell.swift; sourceTree = "<group>"; };
 		855987D5289BBB8000A5E724 /* CastTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CastTableViewCell.xib; sourceTree = "<group>"; };
 		855987D8289BE96D00A5E724 /* MovieCastModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCastModel.swift; sourceTree = "<group>"; };
+		855E10B0289FEA3D00024E42 /* Storyboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Storyboard.storyboard; sourceTree = "<group>"; };
+		855E10B2289FEB4900024E42 /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		856E5C3C289C037800CA058B /* OverViewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverViewTableViewCell.swift; sourceTree = "<group>"; };
 		856E5C3D289C037800CA058B /* OverViewTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OverViewTableViewCell.xib; sourceTree = "<group>"; };
 		856E5C41289C0CEA00CA058B /* MoiveCrewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoiveCrewModel.swift; sourceTree = "<group>"; };
@@ -86,6 +90,15 @@
 			path = Detail;
 			sourceTree = "<group>";
 		};
+		855E10AF289FEA1F00024E42 /* Web */ = {
+			isa = PBXGroup;
+			children = (
+				855E10B0289FEA3D00024E42 /* Storyboard.storyboard */,
+				855E10B2289FEB4900024E42 /* WebViewController.swift */,
+			);
+			path = Web;
+			sourceTree = "<group>";
+		};
 		85906D332899F6D2001468AE = {
 			isa = PBXGroup;
 			children = (
@@ -106,6 +119,7 @@
 		85906D3E2899F6D2001468AE /* TMDBProject */ = {
 			isa = PBXGroup;
 			children = (
+				855E10AF289FEA1F00024E42 /* Web */,
 				855987CD289BB5B800A5E724 /* Detail */,
 				85906D5A2899FA8B001468AE /* Key */,
 				85906D9F289A8271001468AE /* Model */,
@@ -236,6 +250,7 @@
 			files = (
 				85906D9C289A6DD2001468AE /* ListCollectionViewCell.xib in Resources */,
 				855987D7289BBB8000A5E724 /* CastTableViewCell.xib in Resources */,
+				855E10B1289FEA3D00024E42 /* Storyboard.storyboard in Resources */,
 				85906D542899F7DB001468AE /* .gitignore in Resources */,
 				85906D4C2899F6D3001468AE /* LaunchScreen.storyboard in Resources */,
 				856E5C3F289C037800CA058B /* OverViewTableViewCell.xib in Resources */,
@@ -263,6 +278,7 @@
 				855987D6289BBB8000A5E724 /* CastTableViewCell.swift in Sources */,
 				855987D9289BE96D00A5E724 /* MovieCastModel.swift in Sources */,
 				85906D88289A5835001468AE /* ListViewController.swift in Sources */,
+				855E10B3289FEB4900024E42 /* WebViewController.swift in Sources */,
 				85906D422899F6D2001468AE /* SceneDelegate.swift in Sources */,
 				85906D95289A6D27001468AE /* ReusableViewProtocol.swift in Sources */,
 			);
