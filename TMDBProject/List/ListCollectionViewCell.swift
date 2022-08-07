@@ -51,6 +51,7 @@ class ListCollectionViewCell: UICollectionViewCell {
                 
                 let key = json["results"][0]["key"].stringValue
                 
+                WebViewController.youtubeLink = EndPoint.youtubeURL + key
                 
             case .failure(let error):
                 print(error)
