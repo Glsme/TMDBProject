@@ -43,7 +43,7 @@ class ListViewController: UIViewController {
     
     // Movie 적용
     func requestTMDBTrend(media_type: String, time_window: String, page: Int) {
-        let url = "\(EndPoint.TMDBTrendURL)" + "\(media_type)/" + "\(time_window)?" + "api_key=\(APIKey.TMDB)" + "&page=\(page)"
+        let url = "\(EndPoint.TMDBTrendURL)" + "\(media_type)/" + "\(time_window)?" + "api_key=\(APIKey.TMDB)" + "&page=\(page)" + "&language=ko-KR"
 //        print(url)
         
         AF.request(url, method: .get).validate(statusCode: 200...500).responseData { response in
@@ -56,7 +56,7 @@ class ListViewController: UIViewController {
                 
                 for item in json["results"].arrayValue {
                     let image = EndPoint.TMDBImageURL + item["backdrop_path"].stringValue
-                    let title = item["original_title"].string ?? item["original_name"].stringValue
+                    let title = item["title"].string ?? item["original_name"].stringValue
                     let release_date = item["release_date"].string ?? item["first_air_date"].stringValue
                     let genre_ids = item["genre_ids"].arrayValue
                     let poster_path = EndPoint.TMDBImageURL + item["poster_path"].stringValue
@@ -83,7 +83,7 @@ class ListViewController: UIViewController {
     }
     
     func requestTMDBMoiveList() {
-        let url = "\(EndPoint.TMDBMovieListURL)" + "\(APIKey.TMDB)" + "&language=en-US"
+        let url = "\(EndPoint.TMDBMovieListURL)" + "\(APIKey.TMDB)" + "&language=ko-KR"
         
         AF.request(url, method: .get).validate(statusCode: 200...500).responseData { response in
             switch response.result {
