@@ -109,6 +109,7 @@ extension DetailViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+//        return UITableView.automaticDimension
         if indexPath.section == 0 {
             return UIScreen.main.bounds.height * 0.15
         } else {
@@ -133,11 +134,15 @@ extension DetailViewController: UITableViewDelegate, UITableViewDataSource {
         if indexPath.section == 0 {
             guard let overviewCell = tableView.dequeueReusableCell(withIdentifier: OverViewTableViewCell.resueIdentifier, for: indexPath) as? OverViewTableViewCell else { return UITableViewCell() }
             
+            overviewCell.configureCell()
+            
             overviewCell.overViewLabel.text = data.overview
             
             return overviewCell
         } else if indexPath.section == 1 {
             guard let castCell = tableView.dequeueReusableCell(withIdentifier: CastTableViewCell.resueIdentifier, for: indexPath) as? CastTableViewCell else { return UITableViewCell() }
+            
+            castCell.configureCell()
             
             castCell.nameLabel.text = casts[indexPath.row].name
             castCell.profileImageView.layer.cornerRadius = 10
@@ -146,6 +151,8 @@ extension DetailViewController: UITableViewDelegate, UITableViewDataSource {
             return castCell
         } else if indexPath.section == 2 {
             guard let castCell = tableView.dequeueReusableCell(withIdentifier: CastTableViewCell.resueIdentifier, for: indexPath) as? CastTableViewCell else { return UITableViewCell() }
+            
+            castCell.configureCell()
             
             castCell.nameLabel.text = crews[indexPath.row].name
             castCell.profileImageView.layer.cornerRadius = 10

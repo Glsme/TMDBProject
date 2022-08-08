@@ -16,4 +16,7 @@ class OverViewTableViewCell: UITableViewCell {
         // Initialization code
     }
     
+    func configureCell() {
+        overViewLabel.font = UIFont(name: "Binggrae", size: 15)
+    }
 }

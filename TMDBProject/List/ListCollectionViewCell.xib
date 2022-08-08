@@ -34,7 +34,7 @@
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="자세히 보기" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3ze-yv-g0W">
                                 <rect key="frame" x="8" y="351.5" width="55.5" height="14.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="0.0"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -132,6 +132,7 @@
             <connections>
                 <outlet property="clipButton" destination="27J-hH-eWy" id="Ece-YD-rKE"/>
                 <outlet property="dateLabel" destination="Xiv-Sb-kPs" id="ays-cy-Nfk"/>
+                <outlet property="detailLabel" destination="3ze-yv-g0W" id="s11-HD-DDY"/>
                 <outlet property="hashTagLabel" destination="eaN-qH-N47" id="Pu1-Qq-CFw"/>
                 <outlet property="listImageView" destination="5Tt-PG-HGr" id="6gj-Cy-ZZI"/>
                 <outlet property="overViewLabel" destination="W4P-RF-DYs" id="3y4-qC-Jne"/>

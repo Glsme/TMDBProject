@@ -20,6 +20,7 @@ class ListCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var overViewLabel: UILabel!
     @IBOutlet weak var clipButton: UIButton!
+    @IBOutlet weak var detailLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -28,6 +29,13 @@ class ListCollectionViewCell: UICollectionViewCell {
 
     
     func configureCell(data: TrendListModel) {
+        // font 적용
+        hashTagLabel.font = UIFont(name: "Binggrae-Bold", size: 17)
+        dateLabel.font = UIFont(name: "Binggrae", size: 13)
+        titleLabel.font = UIFont(name: "Binggrae-Bold", size: 16)
+        overViewLabel.font = UIFont(name: "Binggrae", size: 12)
+        detailLabel.font = UIFont(name: "Binggrae", size: 12)
+        
         listImageView.kf.setImage(with: URL(string: data.backdrop_path))
         dateLabel.text = data.release_date
         titleLabel.text = data.title

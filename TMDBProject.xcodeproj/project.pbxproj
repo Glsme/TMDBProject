@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		851AEA7328A0DE83009E13C6 /* TMDBMovieAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 851AEA7228A0DE83009E13C6 /* TMDBMovieAPIManager.swift */; };
+		851AEA7A28A0EC95009E13C6 /* Binggrae-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 851AEA7828A0EC94009E13C6 /* Binggrae-Bold.ttf */; };
+		851AEA7B28A0EC95009E13C6 /* Binggrae.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 851AEA7928A0EC95009E13C6 /* Binggrae.ttf */; };
 		855987CF289BB5C400A5E724 /* Detail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 855987CE289BB5C400A5E724 /* Detail.storyboard */; };
 		855987D1289BB60600A5E724 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 855987D0289BB60600A5E724 /* DetailViewController.swift */; };
 		855987D6289BBB8000A5E724 /* CastTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 855987D4289BBB8000A5E724 /* CastTableViewCell.swift */; };
@@ -38,6 +40,8 @@
 
 /* Begin PBXFileReference section */
 		851AEA7228A0DE83009E13C6 /* TMDBMovieAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMDBMovieAPIManager.swift; sourceTree = "<group>"; };
+		851AEA7828A0EC94009E13C6 /* Binggrae-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Binggrae-Bold.ttf"; sourceTree = "<group>"; };
+		851AEA7928A0EC95009E13C6 /* Binggrae.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Binggrae.ttf; sourceTree = "<group>"; };
 		855987CE289BB5C400A5E724 /* Detail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Detail.storyboard; sourceTree = "<group>"; };
 		855987D0289BB60600A5E724 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		855987D4289BBB8000A5E724 /* CastTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastTableViewCell.swift; sourceTree = "<group>"; };
@@ -87,6 +91,15 @@
 			path = APIManager;
 			sourceTree = "<group>";
 		};
+		851AEA7528A0EB26009E13C6 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				851AEA7828A0EC94009E13C6 /* Binggrae-Bold.ttf */,
+				851AEA7928A0EC95009E13C6 /* Binggrae.ttf */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
 		855987CD289BB5B800A5E724 /* Detail */ = {
 			isa = PBXGroup;
 			children = (
@@ -129,6 +142,7 @@
 		85906D3E2899F6D2001468AE /* TMDBProject */ = {
 			isa = PBXGroup;
 			children = (
+				851AEA7528A0EB26009E13C6 /* Resource */,
 				851AEA7428A0DF82009E13C6 /* APIManager */,
 				855E10AF289FEA1F00024E42 /* Web */,
 				855987CD289BB5B800A5E724 /* Detail */,
@@ -265,8 +279,10 @@
 				85906D542899F7DB001468AE /* .gitignore in Resources */,
 				85906D4C2899F6D3001468AE /* LaunchScreen.storyboard in Resources */,
 				856E5C3F289C037800CA058B /* OverViewTableViewCell.xib in Resources */,
+				851AEA7B28A0EC95009E13C6 /* Binggrae.ttf in Resources */,
 				85906D492899F6D3001468AE /* Assets.xcassets in Resources */,
 				855987CF289BB5C400A5E724 /* Detail.storyboard in Resources */,
+				851AEA7A28A0EC95009E13C6 /* Binggrae-Bold.ttf in Resources */,
 				85906D472899F6D2001468AE /* List.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

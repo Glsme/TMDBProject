@@ -18,4 +18,9 @@ class CastTableViewCell: UITableViewCell {
         // Initialization code
     }
     
+    func configureCell() {
+        nameLabel.font = UIFont(name: "Binggrae-Bold", size: 17)
+        detailLabel.font = UIFont(name: "Binggrae", size: 13)
+    }
+    
 }
