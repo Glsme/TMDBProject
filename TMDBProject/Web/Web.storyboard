@@ -30,7 +30,23 @@
                                     <constraint firstAttribute="height" constant="44" id="OKF-kh-pa5"/>
                                 </constraints>
                                 <items>
-                                    <barButtonItem title="Item" id="Ore-US-hag"/>
+                                    <barButtonItem image="arrow.left" catalog="system" id="Ore-US-hag">
+                                        <connections>
+                                            <action selector="goBackButtonClicked:" destination="Y6W-OH-hqX" id="EcK-Nl-4uU"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="3k1-de-Kuf"/>
+                                    <barButtonItem image="arrow.clockwise" catalog="system" id="az5-MQ-Ul2">
+                                        <connections>
+                                            <action selector="reloadButtonClicked:" destination="Y6W-OH-hqX" id="x7p-7p-RQh"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="FQ7-kR-kyB"/>
+                                    <barButtonItem image="arrow.right" catalog="system" id="9LC-Hy-q7T">
+                                        <connections>
+                                            <action selector="goForwardButtonClicked:" destination="Y6W-OH-hqX" id="Dap-aE-Am5"/>
+                                        </connections>
+                                    </barButtonItem>
                                 </items>
                             </toolbar>
                         </subviews>
@@ -56,6 +72,9 @@
         </scene>
     </scenes>
     <resources>
+        <image name="arrow.clockwise" catalog="system" width="115" height="128"/>
+        <image name="arrow.left" catalog="system" width="128" height="98"/>
+        <image name="arrow.right" catalog="system" width="128" height="98"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
