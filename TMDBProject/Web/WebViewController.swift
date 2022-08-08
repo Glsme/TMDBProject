@@ -11,16 +11,21 @@ import WebKit
 class WebViewController: UIViewController {
 
     @IBOutlet weak var webView: WKWebView!
-    static var youtubeLink = ""
+    var youtubeLink = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        openWebPage()
+        
+        openWebPage(url: youtubeLink)
     }
     
-    func openWebPage() {
-        guard let url = URL(string: WebViewController.youtubeLink) else { return }
+    func openWebPage(url: String) {
+        print(url)
+        guard let url = URL(string: url) else {
+            print("Invalid URL")
+            return
+        }
+        
         let request = URLRequest(url: url)
         webView.load(request)
     }

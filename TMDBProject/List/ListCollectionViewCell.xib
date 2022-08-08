@@ -75,9 +75,6 @@
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" image="paperclip" catalog="system"/>
-                                <connections>
-                                    <action selector="clipButtonClicked:" destination="gTV-IL-0wX" eventType="touchUpInside" id="HOk-Ly-GBa"/>
-                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -133,7 +130,7 @@
             </constraints>
             <size key="customSize" width="484" height="497"/>
             <connections>
-                <outlet property="clipButton" destination="27J-hH-eWy" id="WoL-DS-iZa"/>
+                <outlet property="clipButton" destination="27J-hH-eWy" id="Ece-YD-rKE"/>
                 <outlet property="dateLabel" destination="Xiv-Sb-kPs" id="ays-cy-Nfk"/>
                 <outlet property="hashTagLabel" destination="eaN-qH-N47" id="Pu1-Qq-CFw"/>
                 <outlet property="listImageView" destination="5Tt-PG-HGr" id="6gj-Cy-ZZI"/>

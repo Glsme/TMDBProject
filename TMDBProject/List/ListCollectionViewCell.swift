@@ -35,27 +35,8 @@ class ListCollectionViewCell: UICollectionViewCell {
         hashTagLabel.text = "#" + data.genre_ids.joined(separator: " #")
     }
     
-    @IBAction func clipButtonClicked(_ sender: UIButton) {
-        print(ListViewController.searchList[sender.tag].id)
-        requestTMDBMovieLink(movieId: ListViewController.searchList[sender.tag].id)
-    }
-    
-    func requestTMDBMovieLink(movieId: Int) {
-        let url = "\(EndPoint.TMDBMovieLinkURL)" + "\(movieId)/videos?api_key=\(APIKey.TMDB)&language=en-US"
-
-        AF.request(url, method: .get).validate(statusCode: 200...500).responseData { response in
-            switch response.result {
-            case .success(let value):
-                let json = JSON(value)
-                print(json)
-                
-                let key = json["results"][0]["key"].stringValue
-                
-                WebViewController.youtubeLink = EndPoint.youtubeURL + key
-                
-            case .failure(let error):
-                print(error)
-            }
-        }
-    }
+//    @IBAction func clipButtonClicked(_ sender: UIButton) {
+//        print(ListViewController.searchList[sender.tag].id)
+//        requestTMDBMovieLink(movieId: ListViewController.searchList[sender.tag].id)
+//    }
 }

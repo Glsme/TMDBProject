@@ -21,6 +21,7 @@ class ListViewController: UIViewController {
     var totalCount = 0
     var mediaType = "movie"
     var timeWindow = "day"
+    var linkKey = ""
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,7 +50,7 @@ class ListViewController: UIViewController {
             switch response.result {
             case .success(let value):
                 let json = JSON(value)
-                print("JSON: \(json)")
+//                print("JSON: \(json)")
                 
                 self.totalCount = json["total_results"].intValue
                 
@@ -101,6 +102,35 @@ class ListViewController: UIViewController {
             }
         }
     }
+    
+    func requestTMDBMovieLink(movieId: Int) {
+        let url = "\(EndPoint.TMDBMovieLinkURL)" + "\(movieId)/videos?api_key=\(APIKey.TMDB)&language=en-US"
+
+        AF.request(url, method: .get).validate(statusCode: 200...500).responseData { response in
+            switch response.result {
+            case .success(let value):
+                let json = JSON(value)
+                print(json)
+                
+                let key = json["results"][0]["key"].stringValue
+                
+                self.linkKey = EndPoint.youtubeURL + key
+                
+                let sb = UIStoryboard(name: "Web", bundle: nil)
+                guard let vc = sb.instantiateViewController(withIdentifier: WebViewController.resueIdentifier) as? WebViewController else { return }
+                
+                vc.youtubeLink = self.linkKey
+                self.navigationController?.pushViewController(vc, animated: true)
+                
+            case .failure(let error):
+                print(error)
+            }
+        }
+    }
+    
+    @objc func clipButtonClicked(_ sender: UIButton) {
+        requestTMDBMovieLink(movieId: ListViewController.searchList[sender.tag].id)
+    }
 }
 
 // Pagenation
@@ -149,6 +179,7 @@ extension ListViewController: UICollectionViewDelegate, UICollectionViewDataSour
         
         cell.clipButton.layer.cornerRadius = cell.clipButton.frame.height / 2
         cell.clipButton.tag = indexPath.row
+        cell.clipButton.addTarget(self, action: #selector(clipButtonClicked), for: .touchUpInside)
         
         cell.configureCell(data: ListViewController.searchList[indexPath.row])
         

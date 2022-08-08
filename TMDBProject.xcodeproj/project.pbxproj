@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		851AEA7328A0DE83009E13C6 /* TMDBMovieAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 851AEA7228A0DE83009E13C6 /* TMDBMovieAPIManager.swift */; };
 		855987CF289BB5C400A5E724 /* Detail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 855987CE289BB5C400A5E724 /* Detail.storyboard */; };
 		855987D1289BB60600A5E724 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 855987D0289BB60600A5E724 /* DetailViewController.swift */; };
 		855987D6289BBB8000A5E724 /* CastTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 855987D4289BBB8000A5E724 /* CastTableViewCell.swift */; };
@@ -36,6 +37,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		851AEA7228A0DE83009E13C6 /* TMDBMovieAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMDBMovieAPIManager.swift; sourceTree = "<group>"; };
 		855987CE289BB5C400A5E724 /* Detail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Detail.storyboard; sourceTree = "<group>"; };
 		855987D0289BB60600A5E724 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		855987D4289BBB8000A5E724 /* CastTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastTableViewCell.swift; sourceTree = "<group>"; };
@@ -77,6 +79,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		851AEA7428A0DF82009E13C6 /* APIManager */ = {
+			isa = PBXGroup;
+			children = (
+				851AEA7228A0DE83009E13C6 /* TMDBMovieAPIManager.swift */,
+			);
+			path = APIManager;
+			sourceTree = "<group>";
+		};
 		855987CD289BB5B800A5E724 /* Detail */ = {
 			isa = PBXGroup;
 			children = (
@@ -119,6 +129,7 @@
 		85906D3E2899F6D2001468AE /* TMDBProject */ = {
 			isa = PBXGroup;
 			children = (
+				851AEA7428A0DF82009E13C6 /* APIManager */,
 				855E10AF289FEA1F00024E42 /* Web */,
 				855987CD289BB5B800A5E724 /* Detail */,
 				85906D5A2899FA8B001468AE /* Key */,
@@ -279,6 +290,7 @@
 				855987D9289BE96D00A5E724 /* MovieCastModel.swift in Sources */,
 				85906D88289A5835001468AE /* ListViewController.swift in Sources */,
 				855E10B3289FEB4900024E42 /* WebViewController.swift in Sources */,
+				851AEA7328A0DE83009E13C6 /* TMDBMovieAPIManager.swift in Sources */,
 				85906D422899F6D2001468AE /* SceneDelegate.swift in Sources */,
 				85906D95289A6D27001468AE /* ReusableViewProtocol.swift in Sources */,
 			);
