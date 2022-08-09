@@ -8,23 +8,23 @@
 import UIKit
 
 protocol ReusableProtocol {
-    static var resueIdentifier: String { get }
+    static var reuseIdentifier: String { get }
 }
 
 extension UICollectionViewCell: ReusableProtocol {
-    static var resueIdentifier: String {
+    static var reuseIdentifier: String {
         return String(describing: self)
     }
 }
 
 extension UIViewController: ReusableProtocol {
-    static var resueIdentifier: String {
+    static var reuseIdentifier: String {
         return String(describing: self)
     }
 }
 
 extension UITableViewCell: ReusableProtocol {
-    static var resueIdentifier: String {
+    static var reuseIdentifier: String {
         return String(describing: self)
     }
 }

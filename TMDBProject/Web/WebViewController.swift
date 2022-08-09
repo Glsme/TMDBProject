@@ -29,6 +29,7 @@ class WebViewController: UIViewController {
         let request = URLRequest(url: url)
         webView.load(request)
     }
+    
     @IBAction func goBackButtonClicked(_ sender: UIBarButtonItem) {
         if webView.canGoBack {
             webView.goBack()

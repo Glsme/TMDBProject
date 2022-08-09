@@ -28,8 +28,8 @@ class DetailViewController: UIViewController {
         
         castTableView.delegate = self
         castTableView.dataSource = self
-        castTableView.register(UINib(nibName: CastTableViewCell.resueIdentifier, bundle: nil), forCellReuseIdentifier: CastTableViewCell.resueIdentifier)
-        castTableView.register(UINib(nibName: OverViewTableViewCell.resueIdentifier, bundle: nil), forCellReuseIdentifier: OverViewTableViewCell.resueIdentifier)
+        castTableView.register(UINib(nibName: CastTableViewCell.reuseIdentifier, bundle: nil), forCellReuseIdentifier: CastTableViewCell.reuseIdentifier)
+        castTableView.register(UINib(nibName: OverViewTableViewCell.reuseIdentifier, bundle: nil), forCellReuseIdentifier: OverViewTableViewCell.reuseIdentifier)
         
         configureUI(data: data)
         requestTMDBCast(id: data.id)
@@ -132,7 +132,7 @@ extension DetailViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         if indexPath.section == 0 {
-            guard let overviewCell = tableView.dequeueReusableCell(withIdentifier: OverViewTableViewCell.resueIdentifier, for: indexPath) as? OverViewTableViewCell else { return UITableViewCell() }
+            guard let overviewCell = tableView.dequeueReusableCell(withIdentifier: OverViewTableViewCell.reuseIdentifier, for: indexPath) as? OverViewTableViewCell else { return UITableViewCell() }
             
             overviewCell.configureCell()
             
@@ -140,7 +140,7 @@ extension DetailViewController: UITableViewDelegate, UITableViewDataSource {
             
             return overviewCell
         } else if indexPath.section == 1 {
-            guard let castCell = tableView.dequeueReusableCell(withIdentifier: CastTableViewCell.resueIdentifier, for: indexPath) as? CastTableViewCell else { return UITableViewCell() }
+            guard let castCell = tableView.dequeueReusableCell(withIdentifier: CastTableViewCell.reuseIdentifier, for: indexPath) as? CastTableViewCell else { return UITableViewCell() }
             
             castCell.configureCell()
             
@@ -150,7 +150,7 @@ extension DetailViewController: UITableViewDelegate, UITableViewDataSource {
             castCell.detailLabel.text = "\(casts[indexPath.row].originalName) / \"No.\(casts[indexPath.row].id)\""
             return castCell
         } else if indexPath.section == 2 {
-            guard let castCell = tableView.dequeueReusableCell(withIdentifier: CastTableViewCell.resueIdentifier, for: indexPath) as? CastTableViewCell else { return UITableViewCell() }
+            guard let castCell = tableView.dequeueReusableCell(withIdentifier: CastTableViewCell.reuseIdentifier, for: indexPath) as? CastTableViewCell else { return UITableViewCell() }
             
             castCell.configureCell()
             

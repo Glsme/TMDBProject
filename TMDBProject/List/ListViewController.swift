@@ -30,7 +30,7 @@ class ListViewController: UIViewController {
         listCollectionView.dataSource = self
         listCollectionView.prefetchDataSource = self // Pagenation
         
-        listCollectionView.register(UINib(nibName: ListCollectionViewCell.resueIdentifier, bundle: nil), forCellWithReuseIdentifier: ListCollectionViewCell.resueIdentifier)
+        listCollectionView.register(UINib(nibName: ListCollectionViewCell.reuseIdentifier, bundle: nil), forCellWithReuseIdentifier: ListCollectionViewCell.reuseIdentifier)
         
         // genres IDs load
         requestTMDBMoiveList()
@@ -117,7 +117,7 @@ class ListViewController: UIViewController {
                 self.linkKey = EndPoint.youtubeURL + key
                 
                 let sb = UIStoryboard(name: "Web", bundle: nil)
-                guard let vc = sb.instantiateViewController(withIdentifier: WebViewController.resueIdentifier) as? WebViewController else { return }
+                guard let vc = sb.instantiateViewController(withIdentifier: WebViewController.reuseIdentifier) as? WebViewController else { return }
                 
                 vc.youtubeLink = self.linkKey
                 self.navigationController?.pushViewController(vc, animated: true)
@@ -152,7 +152,7 @@ extension ListViewController: UICollectionViewDelegate, UICollectionViewDataSour
         let width = UIScreen.main.bounds.width
         let height = UIScreen.main.bounds.height
         layout.itemSize = CGSize(width: width, height: height / 2.35)
-        layout.scrollDirection = .vertical
+        layout.scrollDirection = .horizontal
         layout.sectionInset = UIEdgeInsets(top: spacing, left: spacing, bottom: spacing, right: spacing)
         layout.minimumInteritemSpacing = spacing
         layout.minimumLineSpacing = 10
@@ -164,7 +164,7 @@ extension ListViewController: UICollectionViewDelegate, UICollectionViewDataSour
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ListCollectionViewCell.resueIdentifier, for: indexPath) as? ListCollectionViewCell else { return UICollectionViewCell() }
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ListCollectionViewCell.reuseIdentifier, for: indexPath) as? ListCollectionViewCell else { return UICollectionViewCell() }
         
         cell.preView.layer.shadowColor = UIColor.black.cgColor
         cell.preView.layer.masksToBounds = false
@@ -189,7 +189,7 @@ extension ListViewController: UICollectionViewDelegate, UICollectionViewDataSour
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
         let sb = UIStoryboard(name: "Detail", bundle: nil)
-        guard let vc = sb.instantiateViewController(withIdentifier: DetailViewController.resueIdentifier) as? DetailViewController else { return }
+        guard let vc = sb.instantiateViewController(withIdentifier: DetailViewController.reuseIdentifier) as? DetailViewController else { return }
         
         vc.data = ListViewController.searchList[indexPath.row]
         
