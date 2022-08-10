@@ -50,11 +50,14 @@
                     </view>
                     <navigationItem key="navigationItem" title=" " id="TMj-3h-1ia">
                         <barButtonItem key="leftBarButtonItem" image="star.fill" catalog="system" id="NjU-rA-8zd">
+                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
                                 <action selector="recommandButtonClicked:" destination="BYZ-38-t0r" id="svw-Ea-O1t"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" image="magnifyingglass" catalog="system" id="h0q-PL-abS"/>
+                        <barButtonItem key="rightBarButtonItem" image="magnifyingglass" catalog="system" id="h0q-PL-abS">
+                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="listCollectionView" destination="wmH-1z-2jG" id="oHV-Y4-gJI"/>

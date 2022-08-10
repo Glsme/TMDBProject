@@ -45,9 +45,9 @@ class ListViewController: UIViewController {
         let sb = UIStoryboard(name: "Recommand", bundle: nil)
         guard let vc = sb.instantiateViewController(withIdentifier: RecommandViewController.reuseIdentifier) as? RecommandViewController else { return }
         
-        vc.navigationItem.title = "비슷한 영화 추천"
-        
-        self.navigationController?.pushViewController(vc, animated: true)
+//        vc.navigationItem.title = "비슷한 영화 추천"
+        present(vc, animated: true)
+//        self.navigationController?.pushViewController(vc, animated: true)
         
     }
     
