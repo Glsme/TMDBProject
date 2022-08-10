@@ -13,6 +13,8 @@ class RecommandTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        
+        setupUI()
 
     }
     
