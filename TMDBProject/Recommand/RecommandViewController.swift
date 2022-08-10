@@ -22,7 +22,7 @@ class RecommandViewController: UIViewController {
         TMDBMovieAPIManager.shared.callRequestRecommand { value in
             self.recommandList = value
             self.recommandTableView.reloadData()
-            dump(self.recommandList)
+//            dump(self.recommandList)
         }
     }
 }
@@ -40,8 +40,10 @@ extension RecommandViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: RecommandTableViewCell.reuseIdentifier, for: indexPath) as? RecommandTableViewCell else { return UITableViewCell() }
         
-        cell.backgroundColor = .green
-        cell.recommandCollectionView.backgroundColor = .lightGray
+        cell.titleLabel.text = TMDBMovieAPIManager.shared.moiveNameList[indexPath.section] + "와 비슷한 컨텐츠"
+        
+        cell.backgroundColor = .clear
+        cell.recommandCollectionView.backgroundColor = .clear
         cell.recommandCollectionView.delegate = self
         cell.recommandCollectionView.dataSource = self
         cell.recommandCollectionView.tag = indexPath.section
@@ -60,7 +62,7 @@ extension RecommandViewController: UITableViewDelegate, UITableViewDataSource {
 
 extension RecommandViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        print(recommandList[collectionView.tag].count)
+//        print(recommandList[collectionView.tag].count)
         return recommandList[collectionView.tag].count
     }
     
@@ -70,7 +72,6 @@ extension RecommandViewController: UICollectionViewDelegate, UICollectionViewDat
         let url = URL(string: "\(EndPoint.TMDBImageURL)\(recommandList[collectionView.tag][indexPath.item])")
         
         cell.cardView.posterImageView.kf.setImage(with: url)
-
         
         return cell
     }
