@@ -20,7 +20,9 @@ class RecommandViewController: UIViewController {
         recommandTableView.dataSource = self
         
         TMDBMovieAPIManager.shared.callRequestRecommand { value in
-            print("!!!!", value)
+            self.recommandList = value
+            self.recommandTableView.reloadData()
+            dump(self.recommandList)
         }
     }
 }
@@ -28,7 +30,11 @@ class RecommandViewController: UIViewController {
 extension RecommandViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return 1
+    }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return recommandList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -41,6 +47,8 @@ extension RecommandViewController: UITableViewDelegate, UITableViewDataSource {
         cell.recommandCollectionView.tag = indexPath.section
         cell.recommandCollectionView.register(UINib(nibName: RecommandCollectionViewCell.reuseIdentifier, bundle: nil), forCellWithReuseIdentifier: RecommandCollectionViewCell.reuseIdentifier)
         
+        cell.recommandCollectionView.reloadData()
+        
         return cell
     }
     
@@ -52,11 +60,17 @@ extension RecommandViewController: UITableViewDelegate, UITableViewDataSource {
 
 extension RecommandViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        print(recommandList[collectionView.tag].count)
+        return recommandList[collectionView.tag].count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: RecommandCollectionViewCell.reuseIdentifier, for: indexPath) as? RecommandCollectionViewCell else { return UICollectionViewCell() }
+        
+        let url = URL(string: "\(EndPoint.TMDBImageURL)\(recommandList[collectionView.tag][indexPath.item])")
+        
+        cell.cardView.posterImageView.kf.setImage(with: url)
+
         
         return cell
     }
