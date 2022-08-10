@@ -11,11 +11,17 @@ class RecommandViewController: UIViewController {
 
     @IBOutlet weak var recommandTableView: UITableView!
     
+    var recommandList: [[String]] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         recommandTableView.delegate = self
         recommandTableView.dataSource = self
+        
+        TMDBMovieAPIManager.shared.callRequestRecommand { value in
+            self.recommandList = value
+        }
     }
 }
 

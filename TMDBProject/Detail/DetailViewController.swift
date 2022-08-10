@@ -31,6 +31,8 @@ class DetailViewController: UIViewController {
         castTableView.register(UINib(nibName: CastTableViewCell.reuseIdentifier, bundle: nil), forCellReuseIdentifier: CastTableViewCell.reuseIdentifier)
         castTableView.register(UINib(nibName: OverViewTableViewCell.reuseIdentifier, bundle: nil), forCellReuseIdentifier: OverViewTableViewCell.reuseIdentifier)
         
+//        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "star.fill"), style: .plain, target: self, action: #selector(recommandButtonClicked))
+        
         configureUI(data: data)
         requestTMDBCast(id: data.id)
     }
@@ -50,7 +52,7 @@ class DetailViewController: UIViewController {
             switch response.result {
             case .success(let value):
                 let json = JSON(value)
-                print(json)
+//                print(json)
                 
                 for personInfo in json["cast"].arrayValue {
                     guard let job = personInfo["known_for_department"].string else { return }

@@ -22,7 +22,7 @@ class ListViewController: UIViewController {
     var mediaType = "movie"
     var timeWindow = "day"
     var linkKey = ""
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -40,17 +40,27 @@ class ListViewController: UIViewController {
         setCollectionViewLayout()
         
     }
+    @IBAction func recommandButtonClicked(_ sender: UIBarButtonItem) {
+        
+        let sb = UIStoryboard(name: "Recommand", bundle: nil)
+        guard let vc = sb.instantiateViewController(withIdentifier: RecommandViewController.reuseIdentifier) as? RecommandViewController else { return }
+        
+        vc.navigationItem.title = "비슷한 영화 추천"
+        
+        self.navigationController?.pushViewController(vc, animated: true)
+        
+    }
     
     // Movie 적용
     func requestTMDBTrend(media_type: String, time_window: String, page: Int) {
         let url = "\(EndPoint.TMDBTrendURL)" + "\(media_type)/" + "\(time_window)?" + "api_key=\(APIKey.TMDB)" + "&page=\(page)" + "&language=ko-KR"
-//        print(url)
+        //        print(url)
         
         AF.request(url, method: .get).validate(statusCode: 200...500).responseData { response in
             switch response.result {
             case .success(let value):
                 let json = JSON(value)
-//                print("JSON: \(json)")
+                //                print("JSON: \(json)")
                 
                 self.totalCount = json["total_results"].intValue
                 
@@ -73,7 +83,7 @@ class ListViewController: UIViewController {
                     ListViewController.searchList.append(data)
                 }
                 
-//                self.totalCount = self.searchList.count
+                //                self.totalCount = self.searchList.count
                 self.listCollectionView.reloadData()
                 
             case .failure(let error):
@@ -105,7 +115,7 @@ class ListViewController: UIViewController {
     
     func requestTMDBMovieLink(movieId: Int) {
         let url = "\(EndPoint.TMDBMovieLinkURL)" + "\(movieId)/videos?api_key=\(APIKey.TMDB)&language=en-US"
-
+        
         AF.request(url, method: .get).validate(statusCode: 200...500).responseData { response in
             switch response.result {
             case .success(let value):
@@ -152,7 +162,7 @@ extension ListViewController: UICollectionViewDelegate, UICollectionViewDataSour
         let width = UIScreen.main.bounds.width
         let height = UIScreen.main.bounds.height
         layout.itemSize = CGSize(width: width, height: height / 2.35)
-        layout.scrollDirection = .horizontal
+        layout.scrollDirection = .vertical
         layout.sectionInset = UIEdgeInsets(top: spacing, left: spacing, bottom: spacing, right: spacing)
         layout.minimumInteritemSpacing = spacing
         layout.minimumLineSpacing = 10
@@ -172,7 +182,7 @@ extension ListViewController: UICollectionViewDelegate, UICollectionViewDataSour
         cell.preView.layer.shadowRadius = 5
         cell.preView.layer.shadowOpacity = 0.3
         
-//        cell.backgroundColor = .orange
+        //        cell.backgroundColor = .orange
         cell.listImageView.layer.cornerRadius = 10
         cell.listImageView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
         cell.preView.layer.cornerRadius = 10

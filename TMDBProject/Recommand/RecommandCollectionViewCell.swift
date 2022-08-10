@@ -24,5 +24,4 @@ class RecommandCollectionViewCell: UICollectionViewCell {
 //        cardView.posterImageView.layer.cornerRadius = 10
         cardView.posterImageView.tintColor = .systemPink
     }
-
 }
