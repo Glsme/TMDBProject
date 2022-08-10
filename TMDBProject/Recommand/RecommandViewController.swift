@@ -20,7 +20,7 @@ class RecommandViewController: UIViewController {
         recommandTableView.dataSource = self
         
         TMDBMovieAPIManager.shared.callRequestRecommand { value in
-            self.recommandList = value
+            print("!!!!", value)
         }
     }
 }
