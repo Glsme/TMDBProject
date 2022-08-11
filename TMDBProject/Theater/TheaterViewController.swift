@@ -32,11 +32,11 @@ class TheaterViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        showChosingTheaterActionSheet()
+//        showChosingTheaterActionSheet()
     }
     
-    func setRegionAndAnnotation(center: CLLocationCoordinate2D) {
-        let region = MKCoordinateRegion(center: center, latitudinalMeters: 1000, longitudinalMeters: 1000)
+    func setUserRegionAndAnnotation(center: CLLocationCoordinate2D) {
+        let region = MKCoordinateRegion(center: center, latitudinalMeters: 10000, longitudinalMeters: 10000)
         theaterMapView?.setRegion(region, animated: true)
         
         let annotation = MKPointAnnotation()
@@ -46,19 +46,45 @@ class TheaterViewController: UIViewController {
         theaterMapView.addAnnotation(annotation)
     }
     
+    func setRegionAndAnnotation(latitude: Double, longitude: Double, theaterName: String) {
+        let center = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+        let region = MKCoordinateRegion(center: center, latitudinalMeters: 10000, longitudinalMeters: 10000)
+        theaterMapView?.setRegion(region, animated: true)
+        
+        let annotation = MKPointAnnotation()
+        annotation.coordinate = center
+        annotation.title = theaterName
+        
+        theaterMapView.addAnnotation(annotation)
+    }
+    
     func showChosingTheaterActionSheet() {
         let theaterAlert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
-        let lotteCinema = UIAlertAction(title: "롯데 시네마", style: .default) { _ in
-            
+        let lotteCinema = UIAlertAction(title: "롯데 시네마", style: .default) { value in
+            for item in TheaterList.mapAnnotations {
+                if item.type == value.title {
+                    self.setRegionAndAnnotation(latitude: item.latitude, longitude: item.longitude, theaterName: item.location)
+                }
+            }
         }
-        let megaBox = UIAlertAction(title: "메가 박스", style: .default) { _ in
-            
+        let megaBox = UIAlertAction(title: "메가 박스", style: .default) { value in
+            for item in TheaterList.mapAnnotations {
+                if item.type == value.title {
+                    self.setRegionAndAnnotation(latitude: item.latitude, longitude: item.longitude, theaterName: item.location)
+                }
+            }
         }
-        let cgv = UIAlertAction(title: "CGV", style: .default) { _ in
-            
+        let cgv = UIAlertAction(title: "CGV", style: .default) { value in
+            for item in TheaterList.mapAnnotations {
+                if item.type == value.title {
+                    self.setRegionAndAnnotation(latitude: item.latitude, longitude: item.longitude, theaterName: item.location)
+                }
+            }
         }
-        let all = UIAlertAction(title: "전체 보기", style: .default) { _ in
-            
+        let all = UIAlertAction(title: "전체 보기", style: .default) { value in
+            for item in TheaterList.mapAnnotations {
+                self.setRegionAndAnnotation(latitude: item.latitude, longitude: item.longitude, theaterName: item.location)
+            }
         }
         let cancel = UIAlertAction(title: "취소", style: .cancel, handler: nil)
         
@@ -100,13 +126,16 @@ extension TheaterViewController {
         case .restricted, .denied:
             print("DENIED, 아이폰 설정으로 유도합니다.")
             showRequestLocationServiceAlert()
-            setRegionAndAnnotation(center: defaultCoordinate)
+            setUserRegionAndAnnotation(center: defaultCoordinate)
+            showChosingTheaterActionSheet()
         case .authorizedWhenInUse:
             print("WHEN IN USE")
             locationManager.startUpdatingLocation()
             locationStatus = true
+            showChosingTheaterActionSheet()
         default:
             print("DEFUALT")
+            showChosingTheaterActionSheet()
         }
     }
     
@@ -129,7 +158,7 @@ extension TheaterViewController {
 extension TheaterViewController: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let coordinate = locations.last?.coordinate {
-            setRegionAndAnnotation(center: coordinate)
+            setUserRegionAndAnnotation(center: coordinate)
         }
         
         locationManager.stopUpdatingLocation()
