@@ -11,7 +11,7 @@ import CoreLocation
 import AVFoundation
 
 class TheaterViewController: UIViewController {
-
+    
     @IBOutlet weak var theaterMapView: MKMapView!
     
     let locationManager = CLLocationManager()
@@ -22,7 +22,7 @@ class TheaterViewController: UIViewController {
         super.viewDidLoad()
         
         locationManager.delegate = self
-
+        
         self.navigationController?.navigationBar.topItem?.title = ""
         self.navigationController?.navigationBar.tintColor = .black
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "list.bullet"), style: .plain, target: self, action: #selector(theaterListButtonClicked))
@@ -32,7 +32,7 @@ class TheaterViewController: UIViewController {
     
     @objc func theaterListButtonClicked() {
         theaterMapView.removeAnnotations(theaterMapView.annotations)
-//        theaterMapView.showsUserLocation = true
+        //        theaterMapView.showsUserLocation = true
         showChosingTheaterActionSheet()
     }
     
@@ -68,6 +68,7 @@ class TheaterViewController: UIViewController {
                 }
             }
         }
+        
         let megaBox = UIAlertAction(title: "메가박스", style: .default) { value in
             for item in TheaterList.mapAnnotations {
                 if item.type == value.title {
@@ -75,6 +76,7 @@ class TheaterViewController: UIViewController {
                 }
             }
         }
+        
         let cgv = UIAlertAction(title: "CGV", style: .default) { value in
             for item in TheaterList.mapAnnotations {
                 if item.type == value.title {
@@ -82,11 +84,13 @@ class TheaterViewController: UIViewController {
                 }
             }
         }
+        
         let all = UIAlertAction(title: "전체 보기", style: .default) { value in
             for item in TheaterList.mapAnnotations {
                 self.setRegionAndAnnotation(latitude: item.latitude, longitude: item.longitude, theaterName: item.location)
             }
         }
+        
         let cancel = UIAlertAction(title: "취소", style: .cancel, handler: nil)
         
         theaterAlert.addAction(lotteCinema)
@@ -141,18 +145,18 @@ extension TheaterViewController {
     }
     
     func showRequestLocationServiceAlert() {
-      let requestLocationServiceAlert = UIAlertController(title: "위치정보 이용", message: "위치 서비스를 사용할 수 없습니다. 기기의 '설정>개인정보 보호'에서 위치 서비스를 켜주세요.", preferredStyle: .alert)
+        let requestLocationServiceAlert = UIAlertController(title: "위치정보 이용", message: "위치 서비스를 사용할 수 없습니다. 기기의 '설정>개인정보 보호'에서 위치 서비스를 켜주세요.", preferredStyle: .alert)
         
-      let goSetting = UIAlertAction(title: "설정으로 이동", style: .destructive) { _ in
-          if let appSetting = URL(string: UIApplication.openSettingsURLString) {
-              UIApplication.shared.open(appSetting)
-          }
-      }
-      let cancel = UIAlertAction(title: "취소", style: .default)
-      requestLocationServiceAlert.addAction(cancel)
-      requestLocationServiceAlert.addAction(goSetting)
-      
-      present(requestLocationServiceAlert, animated: true, completion: nil)
+        let goSetting = UIAlertAction(title: "설정으로 이동", style: .destructive) { _ in
+            if let appSetting = URL(string: UIApplication.openSettingsURLString) {
+                UIApplication.shared.open(appSetting)
+            }
+        }
+        let cancel = UIAlertAction(title: "취소", style: .default)
+        requestLocationServiceAlert.addAction(cancel)
+        requestLocationServiceAlert.addAction(goSetting)
+        
+        present(requestLocationServiceAlert, animated: true, completion: nil)
     }
 }
 
