@@ -14,6 +14,7 @@
 		85243A7428A23B820018DB14 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85243A7328A23B820018DB14 /* CardView.swift */; };
 		855563F228A52A2900C1D4E2 /* Theater.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 855563F128A52A2900C1D4E2 /* Theater.storyboard */; };
 		855563F428A52A3B00C1D4E2 /* TheaterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 855563F328A52A3B00C1D4E2 /* TheaterViewController.swift */; };
+		855563F628A52D5200C1D4E2 /* StoryboardName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 855563F528A52D5200C1D4E2 /* StoryboardName.swift */; };
 		855987CF289BB5C400A5E724 /* Detail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 855987CE289BB5C400A5E724 /* Detail.storyboard */; };
 		855987D1289BB60600A5E724 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 855987D0289BB60600A5E724 /* DetailViewController.swift */; };
 		855987D6289BBB8000A5E724 /* CastTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 855987D4289BBB8000A5E724 /* CastTableViewCell.swift */; };
@@ -55,6 +56,7 @@
 		85243A7328A23B820018DB14 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		855563F128A52A2900C1D4E2 /* Theater.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Theater.storyboard; sourceTree = "<group>"; };
 		855563F328A52A3B00C1D4E2 /* TheaterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheaterViewController.swift; sourceTree = "<group>"; };
+		855563F528A52D5200C1D4E2 /* StoryboardName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryboardName.swift; sourceTree = "<group>"; };
 		855987CE289BB5C400A5E724 /* Detail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Detail.storyboard; sourceTree = "<group>"; };
 		855987D0289BB60600A5E724 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		855987D4289BBB8000A5E724 /* CastTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastTableViewCell.swift; sourceTree = "<group>"; };
@@ -207,6 +209,7 @@
 				85906D482899F6D3001468AE /* Assets.xcassets */,
 				85906D4A2899F6D3001468AE /* LaunchScreen.storyboard */,
 				85906D4D2899F6D3001468AE /* Info.plist */,
+				855563F528A52D5200C1D4E2 /* StoryboardName.swift */,
 			);
 			path = TMDBProject;
 			sourceTree = "<group>";
@@ -358,6 +361,7 @@
 				85906D9E289A8201001468AE /* TrendListModel.swift in Sources */,
 				85243A7428A23B820018DB14 /* CardView.swift in Sources */,
 				85777DA628A23479001A4BC1 /* RecommandCollectionViewCell.swift in Sources */,
+				855563F628A52D5200C1D4E2 /* StoryboardName.swift in Sources */,
 				85906D562899F88B001468AE /* APIKey.swift in Sources */,
 				855987D6289BBB8000A5E724 /* CastTableViewCell.swift in Sources */,
 				855987D9289BE96D00A5E724 /* MovieCastModel.swift in Sources */,

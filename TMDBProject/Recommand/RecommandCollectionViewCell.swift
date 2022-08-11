@@ -20,6 +20,8 @@ class RecommandCollectionViewCell: UICollectionViewCell {
     
     func setupUI() {
         cardView.backgroundColor = .clear
+        cardView.layer.cornerRadius = 10
+        cardView.clipsToBounds = true
         cardView.posterImageView.backgroundColor = .clear
 //        cardView.posterImageView.layer.cornerRadius = 10
         cardView.posterImageView.tintColor = .clear

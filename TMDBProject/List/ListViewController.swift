@@ -40,6 +40,13 @@ class ListViewController: UIViewController {
         setCollectionViewLayout()
         
     }
+    
+    @IBAction func searchButtonClicked(_ sender: UIBarButtonItem) {
+        let sb = UIStoryboard(name: StoryboardName.Theater.rawValue, bundle: nil)
+        guard let vc = sb.instantiateViewController(withIdentifier: TheaterViewController.reuseIdentifier) as? TheaterViewController else { return }
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
     @IBAction func recommandButtonClicked(_ sender: UIBarButtonItem) {
         
         let sb = UIStoryboard(name: "Recommand", bundle: nil)
