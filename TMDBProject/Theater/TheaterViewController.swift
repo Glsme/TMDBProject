@@ -49,6 +49,7 @@ class TheaterViewController: UIViewController {
     func showChosingTheaterActionSheet() {
         let theaterAlert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         let lotteCinema = UIAlertAction(title: "롯데 시네마", style: .default) { _ in
+            
         }
         let megaBox = UIAlertAction(title: "메가 박스", style: .default) { _ in
             
