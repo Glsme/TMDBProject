@@ -25,14 +25,15 @@ class TheaterViewController: UIViewController {
 
         self.navigationController?.navigationBar.topItem?.title = ""
         self.navigationController?.navigationBar.tintColor = .black
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "list.bullet"), style: .plain, target: self, action: #selector(theaterListButtonClicked))
         
         checkUserDeviceLocationServiceAuthorization()
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        
-//        showChosingTheaterActionSheet()
+    @objc func theaterListButtonClicked() {
+        theaterMapView.removeAnnotations(theaterMapView.annotations)
+//        theaterMapView.showsUserLocation = true
+        showChosingTheaterActionSheet()
     }
     
     func setUserRegionAndAnnotation(center: CLLocationCoordinate2D) {
@@ -60,14 +61,14 @@ class TheaterViewController: UIViewController {
     
     func showChosingTheaterActionSheet() {
         let theaterAlert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
-        let lotteCinema = UIAlertAction(title: "롯데 시네마", style: .default) { value in
+        let lotteCinema = UIAlertAction(title: "롯데시네마", style: .default) { value in
             for item in TheaterList.mapAnnotations {
                 if item.type == value.title {
                     self.setRegionAndAnnotation(latitude: item.latitude, longitude: item.longitude, theaterName: item.location)
                 }
             }
         }
-        let megaBox = UIAlertAction(title: "메가 박스", style: .default) { value in
+        let megaBox = UIAlertAction(title: "메가박스", style: .default) { value in
             for item in TheaterList.mapAnnotations {
                 if item.type == value.title {
                     self.setRegionAndAnnotation(latitude: item.latitude, longitude: item.longitude, theaterName: item.location)
