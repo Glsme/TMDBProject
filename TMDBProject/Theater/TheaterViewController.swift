@@ -16,6 +16,7 @@ class TheaterViewController: UIViewController {
     
     let locationManager = CLLocationManager()
     var locationStatus = false
+    let defaultCoordinate = CLLocationCoordinate2D(latitude: 37.517829, longitude: 126.886270)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -68,6 +69,7 @@ extension TheaterViewController {
         case .restricted, .denied:
             print("DENIED, 아이폰 설정으로 유도합니다.")
             showRequestLocationServiceAlert()
+            setRegionAndAnnotation(center: defaultCoordinate)
         case .authorizedWhenInUse:
             print("WHEN IN USE")
             locationManager.startUpdatingLocation()
