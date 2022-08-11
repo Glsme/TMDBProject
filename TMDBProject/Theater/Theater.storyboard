@@ -29,6 +29,9 @@
                             <constraint firstItem="6rM-7S-k8B" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="ezm-Pf-Pe4"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="theaterMapView" destination="6rM-7S-k8B" id="1IP-0D-9pL"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
