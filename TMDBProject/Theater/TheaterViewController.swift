@@ -29,6 +29,12 @@ class TheaterViewController: UIViewController {
         checkUserDeviceLocationServiceAuthorization()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        showChosingTheaterActionSheet()
+    }
+    
     func setRegionAndAnnotation(center: CLLocationCoordinate2D) {
         let region = MKCoordinateRegion(center: center, latitudinalMeters: 1000, longitudinalMeters: 1000)
         theaterMapView?.setRegion(region, animated: true)
@@ -38,6 +44,30 @@ class TheaterViewController: UIViewController {
         annotation.title = "현재 위치"
         
         theaterMapView.addAnnotation(annotation)
+    }
+    
+    func showChosingTheaterActionSheet() {
+        let theaterAlert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        let lotteCinema = UIAlertAction(title: "롯데 시네마", style: .default) { _ in
+        }
+        let megaBox = UIAlertAction(title: "메가 박스", style: .default) { _ in
+            
+        }
+        let cgv = UIAlertAction(title: "CGV", style: .default) { _ in
+            
+        }
+        let all = UIAlertAction(title: "전체 보기", style: .default) { _ in
+            
+        }
+        let cancel = UIAlertAction(title: "취소", style: .cancel, handler: nil)
+        
+        theaterAlert.addAction(lotteCinema)
+        theaterAlert.addAction(megaBox)
+        theaterAlert.addAction(cgv)
+        theaterAlert.addAction(all)
+        theaterAlert.addAction(cancel)
+        
+        present(theaterAlert, animated: true)
     }
 }
 
