@@ -114,7 +114,7 @@ extension DetailViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
 //        return UITableView.automaticDimension
         if indexPath.section == 0 {
-            return UIScreen.main.bounds.height * 0.15
+            return UITableView.automaticDimension
         } else {
             return UIScreen.main.bounds.height * 0.125
         }

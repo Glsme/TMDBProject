@@ -17,16 +17,19 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="              " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gzV-yv-oTf">
-                        <rect key="frame" x="16" y="12" width="288" height="20.5"/>
+                        <rect key="frame" x="129.5" y="12" width="61" height="20.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="gzV-yv-oTf" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="6Dt-5P-e8v"/>
-                    <constraint firstItem="gzV-yv-oTf" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="F39-jj-kw0"/>
-                    <constraint firstItem="gzV-yv-oTf" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="aec-ck-5jh"/>
+                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="gzV-yv-oTf" secondAttribute="trailing" constant="8" id="6LT-za-mU3"/>
+                    <constraint firstItem="gzV-yv-oTf" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="Ndp-CS-aYC"/>
+                    <constraint firstItem="gzV-yv-oTf" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="QJP-Ia-njO"/>
+                    <constraint firstItem="gzV-yv-oTf" firstAttribute="top" relation="greaterThanOrEqual" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="alm-0e-mi3"/>
+                    <constraint firstItem="gzV-yv-oTf" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="f4v-YX-fat"/>
+                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="gzV-yv-oTf" secondAttribute="bottom" constant="8" id="vGy-9T-YAm"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
