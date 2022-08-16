@@ -8,5 +8,5 @@
 import Foundation
 
 enum StoryboardName: String {
-    case List, Detail, Recommand, Theater, PageControl
+    case List, Detail, Recommand, Theater, PageControl, Intro
 }
