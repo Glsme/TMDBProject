@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import TMDBUIFramework
 
 protocol ReusableProtocol {
     static var reuseIdentifier: String { get }
