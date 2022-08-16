@@ -15,8 +15,8 @@ class TheaterViewController: UIViewController {
     @IBOutlet weak var theaterMapView: MKMapView!
     
     let locationManager = CLLocationManager()
-    var locationStatus = false
-    let defaultCoordinate = CLLocationCoordinate2D(latitude: 37.517829, longitude: 126.886270)
+    private var locationStatus = false
+    private let defaultCoordinate = CLLocationCoordinate2D(latitude: 37.517829, longitude: 126.886270)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -144,7 +144,7 @@ extension TheaterViewController {
         }
     }
     
-    func showRequestLocationServiceAlert() {
+    private func showRequestLocationServiceAlert() {
         let requestLocationServiceAlert = UIAlertController(title: "위치정보 이용", message: "위치 서비스를 사용할 수 없습니다. 기기의 '설정>개인정보 보호'에서 위치 서비스를 켜주세요.", preferredStyle: .alert)
         
         let goSetting = UIAlertAction(title: "설정으로 이동", style: .destructive) { _ in
