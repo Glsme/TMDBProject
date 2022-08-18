@@ -8,16 +8,21 @@
 import UIKit
 
 extension UIViewController {
-    func transitionViewController<T: UIViewController>(storyboard: String, viewController vc: T) {
-        let sb = UIStoryboard(name: storyboard, bundle: nil)
-        guard let controller = sb.instantiateViewController(withIdentifier: T.reuseIdentifier) as? T else { return }
-        self.present(controller, animated: true)
+    
+    enum Transition {
+        case push
+        case present
     }
     
-    func pushViewController<T: UIViewController>(storyboard: String, viewController vc: T) {
+    func transitionViewController<T: UIViewController>(storyboard: String, viewController vc: T, transition: Transition) {
         let sb = UIStoryboard(name: storyboard, bundle: nil)
         guard let controller = sb.instantiateViewController(withIdentifier: T.reuseIdentifier) as? T else { return }
-        print(String(describing: vc))
-        self.navigationController?.pushViewController(controller, animated: true)
+        
+        switch transition {
+        case .present:
+            self.present(controller, animated: true)
+        case .push:
+            self.navigationController?.pushViewController(controller, animated: true)
+        }
     }
 }

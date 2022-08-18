@@ -41,11 +41,11 @@ class ListViewController: UIViewController {
     }
     
     @IBAction func searchButtonClicked(_ sender: UIBarButtonItem) {
-        pushViewController(storyboard: StoryboardName.Theater.rawValue, viewController: TheaterViewController())
+        transitionViewController(storyboard: StoryboardName.Theater.rawValue, viewController: TheaterViewController(), transition: .push)
     }
     
     @IBAction func recommandButtonClicked(_ sender: UIBarButtonItem) {
-        transitionViewController(storyboard: StoryboardName.Recommand.rawValue, viewController: RecommandViewController())
+        transitionViewController(storyboard: StoryboardName.Recommand.rawValue, viewController: RecommandViewController(), transition: .present)
     }
     
     // Movie 적용
