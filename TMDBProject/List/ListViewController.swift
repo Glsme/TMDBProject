@@ -41,11 +41,15 @@ class ListViewController: UIViewController {
     }
     
     @IBAction func searchButtonClicked(_ sender: UIBarButtonItem) {
-        transitionViewController(storyboard: StoryboardName.Theater.rawValue, viewController: TheaterViewController(), transition: .push)
+        transitionViewController(storyboard: StoryboardName.Theater.rawValue, viewController: TheaterViewController(), transition: .push) { value in
+            
+        }
     }
     
     @IBAction func recommandButtonClicked(_ sender: UIBarButtonItem) {
-        transitionViewController(storyboard: StoryboardName.Recommand.rawValue, viewController: RecommandViewController(), transition: .present)
+        transitionViewController(storyboard: StoryboardName.Recommand.rawValue, viewController: RecommandViewController(), transition: .present) { T in
+
+        }
     }
     
     // Movie 적용
@@ -194,13 +198,8 @@ extension ListViewController: UICollectionViewDelegate, UICollectionViewDataSour
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
-        let sb = UIStoryboard(name: "Detail", bundle: nil)
-        guard let vc = sb.instantiateViewController(withIdentifier: DetailViewController.reuseIdentifier) as? DetailViewController else { return }
-        
-        vc.data = ListViewController.searchList[indexPath.row]
-        
-        vc.navigationItem.title = "출연/제작"
-        self.navigationController?.pushViewController(vc, animated: true)
+        transitionViewController(storyboard: StoryboardName.Detail.rawValue, viewController: DetailViewController(), transition: .push) { vc in
+            vc.data = ListViewController.searchList[indexPath.row]
+        }
     }
 }
