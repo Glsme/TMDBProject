@@ -38,24 +38,14 @@ class ListViewController: UIViewController {
         //update Trend
         requestTMDBTrend(media_type: mediaType, time_window: timeWindow, page: startPage)
         setCollectionViewLayout()
-        
     }
     
     @IBAction func searchButtonClicked(_ sender: UIBarButtonItem) {
-        let sb = UIStoryboard(name: StoryboardName.Theater.rawValue, bundle: nil)
-        guard let vc = sb.instantiateViewController(withIdentifier: TheaterViewController.reuseIdentifier) as? TheaterViewController else { return }
-        self.navigationController?.pushViewController(vc, animated: true)
+        pushViewController(storyboard: StoryboardName.Theater.rawValue, viewController: TheaterViewController())
     }
     
     @IBAction func recommandButtonClicked(_ sender: UIBarButtonItem) {
-        
-        let sb = UIStoryboard(name: "Recommand", bundle: nil)
-        guard let vc = sb.instantiateViewController(withIdentifier: RecommandViewController.reuseIdentifier) as? RecommandViewController else { return }
-        
-//        vc.navigationItem.title = "비슷한 영화 추천"
-        present(vc, animated: true)
-//        self.navigationController?.pushViewController(vc, animated: true)
-        
+        transitionViewController(storyboard: StoryboardName.Recommand.rawValue, viewController: RecommandViewController())
     }
     
     // Movie 적용
