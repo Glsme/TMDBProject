@@ -54,6 +54,7 @@
 		85906D9B289A6DD2001468AE /* ListCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85906D99289A6DD2001468AE /* ListCollectionViewCell.swift */; };
 		85906D9C289A6DD2001468AE /* ListCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 85906D9A289A6DD2001468AE /* ListCollectionViewCell.xib */; };
 		85906D9E289A8201001468AE /* TrendListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85906D9D289A8201001468AE /* TrendListModel.swift */; };
+		859E783828AE29F3002BFAF5 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 859E783728AE29F3002BFAF5 /* UIViewController+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -133,6 +134,7 @@
 		85906D99289A6DD2001468AE /* ListCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListCollectionViewCell.swift; sourceTree = "<group>"; };
 		85906D9A289A6DD2001468AE /* ListCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ListCollectionViewCell.xib; sourceTree = "<group>"; };
 		85906D9D289A8201001468AE /* TrendListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendListModel.swift; sourceTree = "<group>"; };
+		859E783728AE29F3002BFAF5 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -312,6 +314,7 @@
 		85906D92289A6CED001468AE /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				859E783728AE29F3002BFAF5 /* UIViewController+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -479,6 +482,7 @@
 				855563F628A52D5200C1D4E2 /* StoryboardName.swift in Sources */,
 				85906D562899F88B001468AE /* APIKey.swift in Sources */,
 				855987D6289BBB8000A5E724 /* CastTableViewCell.swift in Sources */,
+				859E783828AE29F3002BFAF5 /* UIViewController+Extension.swift in Sources */,
 				855987D9289BE96D00A5E724 /* MovieCastModel.swift in Sources */,
 				85906D88289A5835001468AE /* ListViewController.swift in Sources */,
 				8510851128ABD41300502F34 /* MainPageViewController.swift in Sources */,

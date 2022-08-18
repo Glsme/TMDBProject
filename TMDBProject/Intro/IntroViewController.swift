@@ -25,5 +25,6 @@ class IntroViewController: UIViewController {
         guard let vc = sb.instantiateViewController(withIdentifier: ListViewController.reuseIdentifier) as? ListViewController else { return }
         
 //        self.modalPresentationStyle = .fullScreen
+//        dismiss(animated: true)
     }
 }
