@@ -45,21 +45,21 @@ class TMDBMovieAPIManager {
             posterList.append(value)
             self.moiveNameList.append(ListViewController.searchList[0].title)
             
-            TMDBMovieAPIManager.shared.requestRecommand(movieId: ListViewController.searchList[1].id) { value in
+            TMDBMovieAPIManager.shared.requestRecommand(movieId: ListViewController.searchList[2].id) { value in
                 posterList.append(value)
-                self.moiveNameList.append(ListViewController.searchList[1].title)
+                self.moiveNameList.append(ListViewController.searchList[2].title)
                 
-                TMDBMovieAPIManager.shared.requestRecommand(movieId: ListViewController.searchList[3].id) { value in
+                TMDBMovieAPIManager.shared.requestRecommand(movieId: ListViewController.searchList[4].id) { value in
                     posterList.append(value)
-                    self.moiveNameList.append(ListViewController.searchList[3].title)
+                    self.moiveNameList.append(ListViewController.searchList[4].title)
                     
-                    TMDBMovieAPIManager.shared.requestRecommand(movieId: ListViewController.searchList[4].id) { value in
+                    TMDBMovieAPIManager.shared.requestRecommand(movieId: ListViewController.searchList[6].id) { value in
                         posterList.append(value)
-                        self.moiveNameList.append(ListViewController.searchList[4].title)
+                        self.moiveNameList.append(ListViewController.searchList[6].title)
                         
-                        TMDBMovieAPIManager.shared.requestRecommand(movieId: ListViewController.searchList[6].id) { value in
+                        TMDBMovieAPIManager.shared.requestRecommand(movieId: ListViewController.searchList[7].id) { value in
                             posterList.append(value)
-                            self.moiveNameList.append(ListViewController.searchList[6].title)
+                            self.moiveNameList.append(ListViewController.searchList[7].title)
                             
 //                            print(self.moiveNameList)
                             completionHandler(posterList)
